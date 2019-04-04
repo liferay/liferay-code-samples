@@ -1,8 +1,8 @@
 
-source ./check.sh
-
 # exit the script as soon as a build fails 
 set -e
+
+source ./check.sh
 
 cd $CODE_FOLDER;
 

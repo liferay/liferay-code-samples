@@ -65,4 +65,4 @@ cd $CURRENT_FOLDER;
 
 ((ERRORS)) && exit 1
 
-
+return 0

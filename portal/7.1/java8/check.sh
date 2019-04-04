@@ -26,15 +26,19 @@ do
 
     checkFolder "$STANDALONE_GRADLE/$PROJECT_PATH"
     checkBuildFile "$STANDALONE_GRADLE/$PROJECT_PATH/build.gradle"
+    checkSymlinks "$STANDALONE_GRADLE/$PROJECT_PATH"
 
     checkFolder "$STANDALONE_MAVEN/$PROJECT_PATH"
     checkBuildFile "$STANDALONE_MAVEN/$PROJECT_PATH/pom.xml"
+    checkSymlinks "$STANDALONE_MAVEN/$PROJECT_PATH"
 
     checkFolder "$WORKSPACE_GRADLE/$PROJECT_PATH"
     checkBuildFile "$WORKSPACE_GRADLE/$PROJECT_PATH/build.gradle"
+    checkSymlinks "$WORKSPACE_GRADLE/$PROJECT_PATH"
 
     checkFolder "$WORKSPACE_MAVEN/$PROJECT_PATH"
     checkBuildFile "$WORKSPACE_MAVEN/$PROJECT_PATH/pom.xml"
+    checkSymlinks "$WORKSPACE_MAVEN/$PROJECT_PATH"
 
 done;
 

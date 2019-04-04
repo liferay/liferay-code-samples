@@ -1,6 +1,9 @@
 
 source ./check.sh
 
+# exit the script as soon as a build fails 
+set -e
+
 cd $CODE_FOLDER;
 
 # build standalone projects

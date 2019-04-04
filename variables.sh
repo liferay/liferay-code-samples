@@ -1,0 +1,12 @@
+CURRENT_FOLDER=$(pwd);
+SCRIPT_FOLDER=$(realpath $(dirname "$0"));
+CODE_FOLDER="$SCRIPT_FOLDER/code";
+
+STANDALONE_GRADLE="$SCRIPT_FOLDER/standalone-gradle";
+STANDALONE_MAVEN="$SCRIPT_FOLDER/standalone-maven";
+WORKSPACE_GRADLE="$SCRIPT_FOLDER/workspace-gradle/modules";
+WORKSPACE_MAVEN="$SCRIPT_FOLDER/workspace-maven/modules";
+
+COLOR_OFF="\033[0m"
+COLOR_RED="\033[0;31m"
+COLOR_GREEN="\033[0;32m"

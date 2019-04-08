@@ -63,6 +63,6 @@ done;
 
 cd $CURRENT_FOLDER;
 
-((ERRORS)) && exit 1
-
-return 0
+if [[ ${ERRORS} != 0 ]]; then
+  exit 1
+fi

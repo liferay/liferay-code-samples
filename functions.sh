@@ -81,4 +81,13 @@ checkSymlinks () {
     done
     return 0;
 
+banner () {
+    local COLOR=$1;
+    local message="|   $2   |";
+    local line=$(head -c ${#message} < /dev/zero | tr '\0' '-')
+    echo 
+    colorEcho ${COLOR} "${line}"
+    colorEcho ${COLOR} "${message}"
+    colorEcho ${COLOR} "${line}"
+    echo 
 }

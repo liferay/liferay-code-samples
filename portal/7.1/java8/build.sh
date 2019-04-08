@@ -10,20 +10,12 @@ cd $CODE_FOLDER;
 
 for PROJECT_PATH in ${SAMPLES}
 do
-    echo 
-    echo "=================================================="
-    echo "==>> Building standalone $PROJECT_PATH with Gradle"
-    echo "=================================================="
-    echo 
+    banner $COLOR_GREEN_BG "Building standalone $PROJECT_PATH with Gradle"
     cd $STANDALONE_GRADLE/$PROJECT_PATH
     rm -rf .gradle
     ./gradlew clean assemble
 
-    echo 
-    echo "=================================================="
-    echo "==>> Building standalone $PROJECT_PATH with Maven"
-    echo "=================================================="
-    echo 
+    banner $COLOR_BLUE_BG "Building standalone $PROJECT_PATH with Maven"
     cd $STANDALONE_MAVEN/$PROJECT_PATH
     mvn clean package
 done;
@@ -31,19 +23,12 @@ done;
 
 # build workspaces
 
-echo 
-echo "=================================================="
-echo "==>> Building the whole Gradle workspace"
-echo "=================================================="
-echo 
+banner $COLOR_GREEN_BG "Building the whole Gradle workspace"
 cd $WORKSPACE_GRADLE
 rm -rf .gradle
 ./gradlew clean assemble;
 
-echo 
-echo "=================================================="
-echo "==>> Building the whole Maven workspace"
-echo "=================================================="
+banner $COLOR_BLUE_BG "Building the whole Maven workspace"
 echo 
 cd $WORKSPACE_MAVEN
 mvn clean package;

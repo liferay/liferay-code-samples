@@ -17,8 +17,17 @@
 	<name>Modules :: Applications :: Portlets </name>
 	<packaging>pom</packaging>
 
+	<dependencies>
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<!-- Every portlet depends on Portlet API -->
+		</dependency>
+	</dependencies>
+
 	<modules>
 		<module>generic-ds-plain</module>
+		<module>mvc-ds-jsp</module>
 	</modules>
 
 </project>

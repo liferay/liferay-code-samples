@@ -1,6 +1,6 @@
 
 /*
- * TODO: Explain why one needs tis plugin and what it does. Reffer to the docs perhaps.
+ * TODO: Explain why one needs this plugin and what it does. Reffer to the docs perhaps.
  */
 apply plugin: "com.liferay.plugin"
 

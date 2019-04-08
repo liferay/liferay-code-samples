@@ -81,6 +81,110 @@ checkSymlinks () {
     done
     return 0;
 
+}
+
+moveSample () {
+
+    OLD_PROJECT_PATH=${1}
+    NEW_PROJECT_PATH=${2}
+
+    if ! [[ -e ${OLD_PROJECT_PATH} ]]; then
+        echo "Path ${OLD_PROJECT_PATH} does not exists!"
+        return 1;
+    fi;
+
+    if ! [[ -e "${OLD_PROJECT_PATH}/${SAMPLE_FILE_NAME}" ]]; then
+        echo "Path ${OLD_PROJECT_PATH} is not a sample folder!"
+        return 1;
+    fi;
+
+    OLD_PROJECT_PATH=$(realpath ${OLD_PROJECT_PATH})
+
+    if ! [[ $OLD_PROJECT_PATH/ = ${CODE_FOLDER}/* ]]; then
+        echo "Path ${OLD_PROJECT_PATH} is not under '${CODE_FOLDER}' folder!"
+        return 1;
+    fi;
+
+    OLD_PROJECT_PATH=$(realpath --relative-to=${CODE_FOLDER} ${OLD_PROJECT_PATH})
+
+    if [[ -e "${NEW_PROJECT_PATH}" ]]; then
+        echo "Path ${NEW_PROJECT_PATH} already exists!"
+        return 1;
+    fi;
+
+    dir=${NEW_PROJECT_PATH}
+    while [[ $dir && ! -d $dir ]] ; do
+        dir=${dir%/*}
+    done
+    
+    if [[ $dir ]]; then
+        dir=$(realpath ${dir})
+        if ! [[ $dir/ = ${CODE_FOLDER}/* ]]; then
+            echo "Path ${NEW_PROJECT_PATH} is not under '${CODE_FOLDER}' folder!"
+            return 1;
+        fi;
+    else
+        echo "Path ${NEW_PROJECT_PATH} is invalid!"
+        return 1;
+    fi;
+
+    NEW_PROJECT_PATH=$(realpath --relative-to=${CODE_FOLDER} ${NEW_PROJECT_PATH})
+
+    mv ${CODE_FOLDER}/${OLD_PROJECT_PATH} ${CODE_FOLDER}/${NEW_PROJECT_PATH}
+
+    mv ${STANDALONE_GRADLE}/${OLD_PROJECT_PATH} ${STANDALONE_GRADLE}/${NEW_PROJECT_PATH}
+    mv ${STANDALONE_MAVEN}/${OLD_PROJECT_PATH} ${STANDALONE_MAVEN}/${NEW_PROJECT_PATH}
+    mv ${WORKSPACE_GRADLE}/${OLD_PROJECT_PATH} ${WORKSPACE_GRADLE}/${NEW_PROJECT_PATH}
+    mv ${WORKSPACE_MAVEN}/${OLD_PROJECT_PATH} ${WORKSPACE_MAVEN}/${NEW_PROJECT_PATH}
+
+    colorEcho ${COLOR_RED} "WARNING: Maven workspace project moved. Please update parent POM(s) !!!"
+
+    updateLink ${STANDALONE_GRADLE} ${OLD_PROJECT_PATH} ${NEW_PROJECT_PATH}
+    updateLink ${STANDALONE_MAVEN} ${OLD_PROJECT_PATH} ${NEW_PROJECT_PATH}
+    updateLink ${WORKSPACE_GRADLE} ${OLD_PROJECT_PATH} ${NEW_PROJECT_PATH}
+    updateLink ${WORKSPACE_MAVEN} ${OLD_PROJECT_PATH} ${NEW_PROJECT_PATH}
+}
+
+updateLinks () {
+
+    local OLD_PROJECT_PATH=$(realpath --relative-to=${CODE_FOLDER} ${1})
+    local NEW_PROJECT_PATH=$(realpath --relative-to=${CODE_FOLDER} ${2})
+
+    for FOLDER in ${STANDALONE_GRADLE} ${STANDALONE_MAVEN} ${WORKSPACE_GRADLE} ${WORKSPACE_MAVEN}
+    do
+        updateLink ${FOLDER} ${OLD_PROJECT_PATH} ${NEW_PROJECT_PATH}
+    done
+
+}
+
+
+updateLink () {
+    local BASE_PATH=${1};
+    local OLD_PROJECT_PATH=${2};
+    local NEW_PROJECT_PATH=${3}
+
+    for SYMLINK in $(find $BASE_PATH/$NEW_PROJECT_PATH -type l)
+    do
+        TMP_FOLDER=$(pwd)
+        LINK_FOLDER=$(dirname ${SYMLINK})
+        LINK_NAME=$(basename ${SYMLINK})
+        SYMLINK_TARGET=$(stat -f "%Y" ${SYMLINK})
+        OLD_RELATIVE=$(realpath --relative-to=${LINK_FOLDER} ${CODE_FOLDER}/${OLD_PROJECT_PATH})
+        NEW_RELATIVE=$(realpath --relative-to=${LINK_FOLDER} ${CODE_FOLDER}/${NEW_PROJECT_PATH})
+
+        if [[ ${SYMLINK_TARGET} = ${OLD_RELATIVE}/* ]]; then
+            cd ${LINK_FOLDER}
+            NEW_TARGET=${NEW_RELATIVE}${SYMLINK_TARGET#"$OLD_RELATIVE"}
+            if ! [[ -e ${NEW_TARGET} ]]; then
+                colorEcho ${COLOR_RED} "${NEW_TARGET} does not exsts!"
+            fi;
+            ln -sf ${NEW_TARGET} ${LINK_NAME}
+            cd ${TMP_FOLDER}
+        fi;
+
+    done
+}
+
 banner () {
     local COLOR=$1;
     local message="|   $2   |";

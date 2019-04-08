@@ -33,10 +33,9 @@ echo
 
 
 cd $CODE_FOLDER;
-
-for f in $(find ./* -name ".project_folder") 
+findSamplesInCurrentFolder;
+for PROJECT_PATH in ${SAMPLES}
 do
-    PROJECT_PATH=$(dirname "$f" | sed "s|^\./||"); 
     echo "Found project in $PROJECT_PATH"
 
     checkFolder "$STANDALONE_GRADLE/$PROJECT_PATH"

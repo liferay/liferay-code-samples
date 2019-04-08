@@ -8,7 +8,7 @@ cd $CODE_FOLDER;
 
 # build standalone projects
 
-for f in $(find ./* -name ".project_folder") 
+for PROJECT_PATH in ${SAMPLES}
 do
     echo 
     echo "=================================================="
@@ -47,7 +47,6 @@ echo "=================================================="
 echo 
 cd $WORKSPACE_MAVEN
 mvn clean package;
-
 
 
 cd $CURRENT_FOLDER;

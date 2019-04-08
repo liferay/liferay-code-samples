@@ -3,6 +3,11 @@ colorEcho () {
     return 0;
 }
 
+findSamplesInCurrentFolder () {
+    SAMPLES=$(find ./* -name "${SAMPLE_FILE_NAME}" -exec dirname {} \; | sed "s|^\./||")
+    return 0;
+}
+
 checkFolder () {
     ((VERBOSE)) && echo -n "Checking for project folder ${1} : "
     if [[ -d "${1}" ]]; then

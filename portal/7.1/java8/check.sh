@@ -4,6 +4,7 @@ source ../../../variables.sh
 source ../../../functions.sh
 
 VERBOSE=0
+CREATE=0
 ERRORS=0
 
 for p in ${@}
@@ -11,6 +12,10 @@ do
 case ${p} in
     -v)
     VERBOSE=1
+    shift # past argument=value
+    ;;
+    -c)
+    CREATE=1
     shift # past argument=value
     ;;
     *)
@@ -39,22 +44,22 @@ do
     echo "Found project in $PROJECT_PATH"
 
     checkFolder "$STANDALONE_GRADLE/$PROJECT_PATH"
-    checkLink "$STANDALONE_GRADLE/$PROJECT_PATH/src"
+    checkLink "$STANDALONE_GRADLE/$PROJECT_PATH/src" "${CODE_FOLDER}/$PROJECT_PATH/src"
     checkBuildFile "$STANDALONE_GRADLE/$PROJECT_PATH/build.gradle"
     checkSymlinks "$STANDALONE_GRADLE/$PROJECT_PATH"
 
     checkFolder "$STANDALONE_MAVEN/$PROJECT_PATH"
-    checkLink "$STANDALONE_MAVEN/$PROJECT_PATH/src"
+    checkLink "$STANDALONE_MAVEN/$PROJECT_PATH/src" "${CODE_FOLDER}/$PROJECT_PATH/src"
     checkBuildFile "$STANDALONE_MAVEN/$PROJECT_PATH/pom.xml"
     checkSymlinks "$STANDALONE_MAVEN/$PROJECT_PATH"
 
     checkFolder "$WORKSPACE_GRADLE/$PROJECT_PATH"
-    checkLink "$WORKSPACE_GRADLE/$PROJECT_PATH/src"
+    checkLink "$WORKSPACE_GRADLE/$PROJECT_PATH/src" "${CODE_FOLDER}/$PROJECT_PATH/src"
     checkBuildFile "$WORKSPACE_GRADLE/$PROJECT_PATH/build.gradle"
     checkSymlinks "$WORKSPACE_GRADLE/$PROJECT_PATH"
 
     checkFolder "$WORKSPACE_MAVEN/$PROJECT_PATH"
-    checkLink "$WORKSPACE_MAVEN/$PROJECT_PATH/src"
+    checkLink "$WORKSPACE_MAVEN/$PROJECT_PATH/src" "${CODE_FOLDER}/$PROJECT_PATH/src"
     checkBuildFile "$WORKSPACE_MAVEN/$PROJECT_PATH/pom.xml"
     checkSymlinks "$WORKSPACE_MAVEN/$PROJECT_PATH"
 

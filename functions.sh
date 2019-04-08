@@ -13,9 +13,20 @@ checkFolder () {
     if [[ -d "${1}" ]]; then
         ((VERBOSE)) && colorEcho ${COLOR_GREEN}  "OK"
     else 
-        ((VERBOSE)) && colorEcho ${COLOR_RED}  "MISSING"
-        ((!VERBOSE)) && colorEcho ${COLOR_RED}  "MISSING ${1}"
-        ERRORS=1
+        if [[ -e "${1}" ]]; then
+            ((VERBOSE)) && colorEcho ${COLOR_RED}  "NOT A FOLDER"
+            ((!VERBOSE)) && colorEcho ${COLOR_RED}  "${1} IS NOT A FOLDER "
+            ERRORS=1
+        else
+            ((VERBOSE)) && colorEcho ${COLOR_RED}  "MISSING"
+            ((!VERBOSE)) && colorEcho ${COLOR_RED}  "MISSING ${1}"
+            if [[ $CREATE = 1 ]]; then
+                mkdir -p ${1}
+                colorEcho ${COLOR_YELLOW} "Created folder '${1}'!" 
+            else
+                ERRORS=1
+            fi
+        fi
     fi
     return 0;
 } 
@@ -39,9 +50,26 @@ checkLink () {
     if [[ -L "${1}" ]]; then
         ((VERBOSE)) && colorEcho ${COLOR_GREEN} "OK"
     else 
-        ((VERBOSE)) && colorEcho ${COLOR_RED} "MISSING"
-        ((!VERBOSE)) && colorEcho ${COLOR_RED}  "MISSING ${1}"
-        ERRORS=1
+        if [[ -e "${1}" ]]; then
+            ((VERBOSE)) && colorEcho ${COLOR_RED}  "NOT A SYMLINK"
+            ((!VERBOSE)) && colorEcho ${COLOR_RED}  "${1} IS NOT A SYMLINK "
+            ERRORS=1
+        else
+            ((VERBOSE)) && colorEcho ${COLOR_RED}  "MISSING"
+            ((!VERBOSE)) && colorEcho ${COLOR_RED}  "MISSING ${1}"
+            if [[ $CREATE = 1 ]]; then
+                TMP_FOLDER=$(pwd)
+                LINK_FOLDER=$(dirname ${1})
+                LINK_NAME=$(basename ${1})
+                RELATIVE_LINK_TARGET=$(realpath --relative-to=${LINK_FOLDER} ${2})
+                cd ${LINK_FOLDER}
+                ln -s ${RELATIVE_LINK_TARGET} ${LINK_NAME}
+                cd ${TMP_FOLDER}
+                colorEcho ${COLOR_YELLOW} "Created symlink '${LINK_NAME}' to '${RELATIVE_LINK_TARGET}'!" 
+            else
+                ERRORS=1
+            fi
+        fi
     fi
     return 0;
 } 

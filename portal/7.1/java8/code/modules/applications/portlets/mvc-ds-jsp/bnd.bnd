@@ -1,0 +1,3 @@
+Bundle-SymbolicName: com.liferay.code.samples.portal.portlet.mvc-ds-jsp
+Bundle-Version: 1.0.0
+-sources: true

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.liferay.code.samples.portal.applications.potlets</groupId>
+	<artifactId>com.liferay.code.samples.portal.applications.potlets.mvc-js-jsp</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>Portlet :: MVC + DS + JSP</name>
+
+	<parent>
+		<groupId>workspace.maven</groupId>
+		<artifactId>modules.applications.portlets</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<!-- Liferay's MVC Portlet framework -->
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>com.liferay.portal.kernel</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- Declarative services annotations -->
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.component.annotations</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- Use pre-configured CSS builder plugin to compile scss files -->
+				<groupId>com.liferay</groupId>
+				<artifactId>com.liferay.css.builder</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

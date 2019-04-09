@@ -74,10 +74,13 @@
 					</execution>
 				</executions>
 				<dependencies>
+					<!-- 
+						Add dependency on Liferay's BND plugins 
+					-->
 					<dependency>
-						<groupId>biz.aQute.bnd</groupId>
-						<artifactId>biz.aQute.bndlib</artifactId>
-						<version>3.5.0</version>
+						<groupId>com.liferay</groupId>
+						<artifactId>com.liferay.ant.bnd</artifactId>
+						<version>2.0.50</version>
 					</dependency>
 				</dependencies>
 			</plugin>

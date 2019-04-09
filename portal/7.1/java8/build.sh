@@ -33,5 +33,8 @@ echo
 cd $WORKSPACE_MAVEN
 mvn clean package;
 
+cd ${SCRIPT_FOLDER}
+
+./gradlew check
 
 cd $CURRENT_FOLDER;

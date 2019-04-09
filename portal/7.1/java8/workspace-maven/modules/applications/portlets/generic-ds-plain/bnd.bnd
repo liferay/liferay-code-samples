@@ -1,1 +1,5 @@
-../../../../../code/modules/applications/portlets/generic-ds-plain/bnd.bnd
+# Use the common Bnd instructions such as bundle name and version
+-include: ./common.bnd
+
+# Instruct Bnd to use portalble contracts instead of package dependencies, when possible
+-contract: JavaPortlet

@@ -1,1 +1,8 @@
-../../../../../code/modules/applications/portlets/mvc-ds-jsp/bnd.bnd
+# Use the common Bnd instructions such as bundle name and version
+-include: ./common.bnd
+
+# Since we are using Liferay's plugin in Gradle, the following is automatically taken care of 
+#   - Instruct Bnd to use portalble contracts instead of package dependencies, when possible
+#   - Add a plugin to analyze the JSPs
+#   - Add a plugin to analyze i18n resource bundles
+#   - Add a plugin to analyze SASS/CSS files

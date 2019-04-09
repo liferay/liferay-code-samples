@@ -33,8 +33,8 @@ checkFolder () {
 
 
 
-checkBuildFile () {
-    ((VERBOSE)) && echo -n "Checking for build file '${1}' : "
+checkFile () {
+    ((VERBOSE)) && echo -n "Checking for file '${1}' : "
     if [[ -f "${1}" ]]; then
         ((VERBOSE)) && colorEcho ${COLOR_GREEN} "OK"
     else 

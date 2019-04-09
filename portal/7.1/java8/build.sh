@@ -2,6 +2,7 @@
 # exit the script as soon as a build fails 
 set -e
 
+# check if samples are in all 4 build scenarios
 source ./check.sh
 
 cd $CODE_FOLDER;

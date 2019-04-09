@@ -45,23 +45,24 @@ do
 
     checkFolder "$STANDALONE_GRADLE/$PROJECT_PATH"
     checkLink "$STANDALONE_GRADLE/$PROJECT_PATH/src" "${CODE_FOLDER}/$PROJECT_PATH/src"
-    checkBuildFile "$STANDALONE_GRADLE/$PROJECT_PATH/build.gradle"
+    checkFile "$STANDALONE_GRADLE/$PROJECT_PATH/build.gradle"
     checkSymlinks "$STANDALONE_GRADLE/$PROJECT_PATH"
 
     checkFolder "$STANDALONE_MAVEN/$PROJECT_PATH"
     checkLink "$STANDALONE_MAVEN/$PROJECT_PATH/src" "${CODE_FOLDER}/$PROJECT_PATH/src"
-    checkBuildFile "$STANDALONE_MAVEN/$PROJECT_PATH/pom.xml"
+    checkFile "$STANDALONE_MAVEN/$PROJECT_PATH/pom.xml"
     checkSymlinks "$STANDALONE_MAVEN/$PROJECT_PATH"
 
     checkFolder "$WORKSPACE_GRADLE/$PROJECT_PATH"
     checkLink "$WORKSPACE_GRADLE/$PROJECT_PATH/src" "${CODE_FOLDER}/$PROJECT_PATH/src"
-    checkBuildFile "$WORKSPACE_GRADLE/$PROJECT_PATH/build.gradle"
+    checkFile "$WORKSPACE_GRADLE/$PROJECT_PATH/build.gradle"
     checkSymlinks "$WORKSPACE_GRADLE/$PROJECT_PATH"
 
     checkFolder "$WORKSPACE_MAVEN/$PROJECT_PATH"
     checkLink "$WORKSPACE_MAVEN/$PROJECT_PATH/src" "${CODE_FOLDER}/$PROJECT_PATH/src"
-    checkBuildFile "$WORKSPACE_MAVEN/$PROJECT_PATH/pom.xml"
+    checkFile "$WORKSPACE_MAVEN/$PROJECT_PATH/pom.xml"
     checkSymlinks "$WORKSPACE_MAVEN/$PROJECT_PATH"
+    # TODO: check if parent project has it in modules list
 
 done;
 

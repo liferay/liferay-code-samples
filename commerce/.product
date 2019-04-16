@@ -1,0 +1,4 @@
+name: Liferay Commerce code samples
+description: > 
+  These code samples demonstrate how to build extensions for Liferay Commerce!
+welcomeFile: README.md

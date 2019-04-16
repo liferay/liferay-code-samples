@@ -1,0 +1,22 @@
+name: "MVC Portlet with DS and JSP"
+description: |
+  Demonstrates how to 
+    - build a portlet with Liferay MVC framework
+    - use DS (Declarative Services) framework to register it
+    - use JSPs for the view
+displayFiles:
+  - name: Documentation 
+    highlighting: markdown 
+    path: README.md
+  - name: Portlet class
+    highlighting: java 
+    path: src/main/java/com/liferay/blade/samples/portlet/jsp/JSPPortlet.java
+  - name: Bnd configuration
+    highlighting: yaml 
+    path: bnd.bnd
+  - name: Maven POM
+    highlighting: xml 
+    path: pom.xml
+  - name: Gradle build
+    highlighting: groovy 
+    path: build.gradle

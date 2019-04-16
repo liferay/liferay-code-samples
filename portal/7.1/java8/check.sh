@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source ../../../variables.sh
-source ../../../functions.sh
+. ../../../variables.sh
+. ../../../functions.sh
 
 VERBOSE=0
 CREATE=0

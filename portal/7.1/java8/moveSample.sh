@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../../../variables.sh
-source ../../../functions.sh
+. ../../../variables.sh
+. ../../../functions.sh
 
 moveSample $1 $2

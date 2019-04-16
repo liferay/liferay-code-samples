@@ -3,7 +3,7 @@
 set -e
 
 # check if samples are in all 4 build scenarios
-source ./check.sh
+. ./check.sh
 
 cd $CODE_FOLDER;
 

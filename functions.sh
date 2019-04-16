@@ -80,7 +80,8 @@ checkSymlinks () {
         TMP_FOLDER=$(pwd)
         LINK_FOLDER=$(dirname ${SYMLINK})
         LINK_NAME=$(basename ${SYMLINK})
-        SYMLINK_TARGET=$(stat -f "%Y" ${SYMLINK})
+        # SYMLINK_TARGET=$(stat -f "%Y" ${SYMLINK})
+        SYMLINK_TARGET=$(ls -l ${SYMLINK} | awk '{print $11}')
 
         ((VERBOSE)) && echo -n "Checking symlink '${SYMLINK}' : "
         if [[ ${SYMLINK_TARGET:0:1} == '/' ]]; then

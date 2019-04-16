@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # exit the script as soon as a build fails 
 set -e

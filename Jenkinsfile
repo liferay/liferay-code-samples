@@ -1,9 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Check env') {
       steps {
         isUnix()
+        sh '''gradle -version
+mvn --version'''
+      }
+    }
+    stage('Build') {
+      steps {
         sh '''cd portal/7.1/java8
 ./build.sh'''
       }

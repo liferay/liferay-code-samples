@@ -35,13 +35,7 @@ echo
 cd $WORKSPACE_MAVEN
 mvn clean package
 
-pwd
-
-echo "Script folder: ${SCRIPT_FOLDER}"
-
 cd ${SCRIPT_FOLDER}
-
-pwd
 
 ./gradlew check
 

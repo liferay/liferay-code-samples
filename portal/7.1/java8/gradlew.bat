@@ -1,1 +1,1 @@
-/data/projects/Liferay/dev/git/liferay-code-samples/portal/7.1/java8/workspace-gradle/gradlew.bat
+workspace-gradle/gradlew.bat

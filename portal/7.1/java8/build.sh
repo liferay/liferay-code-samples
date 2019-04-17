@@ -6,7 +6,7 @@ set -e
 # check if samples are in all 4 build scenarios
 . ./check.sh
 
-cd $CODE_FOLDER;
+cd $CODE_FOLDER
 
 # build standalone projects
 
@@ -28,15 +28,21 @@ done;
 banner $COLOR_GREEN_BG "Building the whole Gradle workspace"
 cd $WORKSPACE_GRADLE
 rm -rf .gradle
-./gradlew clean assemble;
+./gradlew clean assemble
 
 banner $COLOR_BLUE_BG "Building the whole Maven workspace"
 echo 
 cd $WORKSPACE_MAVEN
-mvn clean package;
+mvn clean package
+
+pwd
+
+echo "Script folder: ${SCRIPT_FOLDER}"
 
 cd ${SCRIPT_FOLDER}
 
+pwd
+
 ./gradlew check
 
-cd $CURRENT_FOLDER;
+cd $CURRENT_FOLDER

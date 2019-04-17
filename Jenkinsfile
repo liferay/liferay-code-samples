@@ -5,6 +5,7 @@ pipeline {
       steps {
         isUnix()
         sh 'ls -la'
+        sh './build.sh'
       }
     }
   }

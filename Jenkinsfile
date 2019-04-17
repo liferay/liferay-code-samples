@@ -4,7 +4,8 @@ pipeline {
     stage('Check env') {
       steps {
         isUnix()
-        sh '''gradle -version
+        sh '''env
+gradle -version
 mvn --version'''
       }
     }

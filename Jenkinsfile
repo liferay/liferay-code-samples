@@ -4,8 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         isUnix()
-        sh 'ls -la'
-        sh './build.sh'
+        sh '''cd portal/7.1/java8
+./build.sh'''
       }
     }
   }

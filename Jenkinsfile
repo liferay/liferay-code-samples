@@ -16,4 +16,7 @@ mvn --version'''
       }
     }
   }
+  environment {
+    JENKINS_NODE_COOKIE = 'dontKillMe'
+  }
 }

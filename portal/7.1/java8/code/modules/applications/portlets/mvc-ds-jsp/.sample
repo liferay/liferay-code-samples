@@ -11,8 +11,8 @@ displayFiles:
   - name: Portlet class
     highlighting: java 
     path: src/main/java/com/liferay/blade/samples/portlet/jsp/JSPPortlet.java
-  - name: JSP
-    highlighting: jsp 
+  - name: The JSP view
+    highlighting: java 
     path: src/main/resources/META-INF/resources/view.jsp
   - name: Bnd configuration
     highlighting: yaml 

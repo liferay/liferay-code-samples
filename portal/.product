@@ -1,0 +1,9 @@
+name: Liferay Portal CE code samples
+description: > 
+  These code samples demonstrate how to build various applications and extensions for Liferay Portal CE.
+  Many of the samples here can be used as bootstrap project so that your Liferay Portal development can start quickly and easily. 
+  These samples can be copied freely and contributions are welcome.
+welcomeFile: README.md
+defaultVersion: 7.1
+defaultJavaVersion: 8
+defaultBuildEnv: workspace-gradle

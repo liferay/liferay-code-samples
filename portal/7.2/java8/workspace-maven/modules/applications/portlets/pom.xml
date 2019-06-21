@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+	<parent>
+		<groupId>workspace.maven</groupId>
+		<artifactId>modules.applications</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>modules.applications.portlets</artifactId>
+	<name>Modules :: Applications :: Portlets </name>
+	<packaging>pom</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<!-- Every portlet depends on Portlet API -->
+		</dependency>
+	</dependencies>
+
+	<modules>
+		<module>generic-ds-plain</module>
+		<module>mvc-ds-jsp</module>
+	</modules>
+
+</project>

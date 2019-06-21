@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.liferay.code.samples.portal.modules.applications.portlets</groupId>
+	<artifactId>com.liferay.code.samples.portal.modules.applications.portlets.generic-ds-plain</artifactId>
+	<version>1.0.0</version>
+
+	<name>Portlet :: Generic + DS + plain output</name>
+
+	<parent>
+		<groupId>workspace.maven</groupId>
+		<artifactId>modules.applications.portlets</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<!-- Declarative services annotations -->
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.component.annotations</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- set the jar name to ensure it's the same accross all builds -->
+		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.generic-ds-plain</finalName>
+	</build>
+
+</project>

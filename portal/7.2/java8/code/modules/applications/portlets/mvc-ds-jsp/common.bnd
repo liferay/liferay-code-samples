@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.mvc-ds-jsp
+Bundle-Name: Liferay Portal Samples :: MVC Portlet + DS wireing + JSP view
+Bundle-Version: 1.0.0
+
+# Include source code in the bundle
+-sources: true

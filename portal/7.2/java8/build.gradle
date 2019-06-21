@@ -1,0 +1,59 @@
+defaultTasks 'check'
+
+FileTree standaloneGradleBundles = fileTree(dir: 'standalone-gradle', include: '**/libs/*.jar')
+FileTree standaloneMavenBundles = fileTree(dir: 'standalone-maven', include: '**/target/*.jar')
+FileTree workspaceGradleBundles = fileTree(dir: 'workspace-gradle', include: '**/libs/*.jar')
+FileTree workspaceMavenBundles = fileTree(dir: 'workspace-maven', include: '**/target/*.jar')
+
+
+configurations {
+	bnd
+}
+
+dependencies {
+	bnd group: "biz.aQute.bnd", name: "biz.aQute.bnd", version: "3.5.0"
+}
+
+repositories {
+	mavenCentral()
+}
+
+task check {
+    doLast {
+        def errorList = []
+
+        [standaloneGradleBundles, standaloneMavenBundles, workspaceMavenBundles].each { replicationFiles ->
+            replicationFiles.each { replicationFile ->
+                def workspaceGradleFile = workspaceGradleBundles.find {
+                    it.name == replicationFile.name
+                }
+
+                String exclusions = "*pom.properties, *pom.xml, Archiver-Version, Built-By, Build-Jdk, Javac-Debug, Javac-Deprecation, Javac-Encoding"
+
+                def os = new ByteArrayOutputStream()
+
+                javaexec {
+                    args "diff", "-i", "${exclusions}", replicationFile, workspaceGradleFile
+
+                    classpath = configurations.bnd
+                    main = "aQute.bnd.main.bnd"
+                    standardOutput = os
+                }
+
+                def errorOutput = os.toString()
+
+                if (errorOutput) {
+                    errorList.add("${replicationFiles} - ${replicationFile.name} \n" + errorOutput)
+                    println ("⚠️ " + replicationFile)
+                } else {
+                    println ("✅ " + replicationFile)
+                }
+
+            }
+        }
+
+        if (!errorList.empty) {
+            throw new GradleException(errorList.toListString())
+        }
+    }
+}

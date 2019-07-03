@@ -33,14 +33,17 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	immediate = true,
 	property = {
-		"com.liferay.portlet.display-category=category.sample",
-		"com.liferay.portlet.instanceable=true",
-		"javax.portlet.display-name=DS Portlet",
-		"javax.portlet.security-role-ref=power-user,user"
+		"com.liferay.portlet.display-category=category.sample",				// category to which this portlet will be added in applications menu
+		"com.liferay.portlet.instanceable=true",							// can more that one istance be added to a page 
+		"javax.portlet.name=" + DSPortlet.NAME,								// portlet's name
+		"javax.portlet.display-name=GenericPortlet using DS",				// portlet's name to be displayed in applications menu
+		"javax.portlet.security-role-ref=power-user,user"					// references to security roles 
 	},
 	service = Portlet.class
 )
 public class DSPortlet extends GenericPortlet {
+
+	public static final String NAME = "mvc_ds_freemarker_portlet";
 
 	@Override
 	protected void doView(RenderRequest request, RenderResponse response)

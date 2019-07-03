@@ -1,0 +1,58 @@
+
+/*
+ * TODO: Explain why one needs this plugin and what it does. Reffer to the docs perhaps.
+ */
+apply plugin: "com.liferay.plugin"				
+
+/*
+ * Spring's dependency plugin is needed to provide `dependencyManagement` functionality
+ * used to configure Liferay Portal's BOM (Biil Of Material)
+ */
+apply plugin: "io.spring.dependency-management"
+
+
+buildscript {
+
+	// Dependencies of the plugins
+	dependencies {
+		classpath "com.liferay:com.liferay.gradle.plugins:3.13.156"
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
+	}
+
+	// Repositories for getting the depenedencies of the plugins
+	repositories {
+		maven {
+			url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+}
+
+// Repositories for getting the depenedencies of project itself
+repositories {
+	maven {
+		url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+	}
+}
+
+/* 
+ * Use the BOM provided for given Liferay Portal version
+ * This allows to automatically set proper versions for dependencies
+ */
+dependencyManagement {
+    imports {
+        mavenBom("com.liferay.portal:release.portal.bom:7.1.3")
+    }
+}
+
+// Dependencies of the project itself
+dependencies {
+	compileOnly "com.liferay.portal:com.liferay.portal.kernel"		// version will be taken from BOM
+	compileOnly "com.liferay.portal:com.liferay.util.bridges"		// version will be taken from BOM
+	compileOnly "com.liferay.portal:com.liferay.util.taglib"		// version will be taken from BOM
+	compileOnly "javax.portlet:portlet-api:3.0.0"
+	compileOnly "org.osgi:org.osgi.service.component.annotations:1.3.0"
+}
+
+// set the jar name to ensure it's the same accross all builds
+jar.baseName = 'com.liferay.code.samples.portal.modules.applications.portlets.mvc-ds-freemarker'

@@ -1,0 +1,30 @@
+buildscript {
+	dependencies {
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
+	}
+
+	repositories {
+		maven {
+            url "https://plugins.gradle.org/m2/"
+		}
+	}
+}
+
+subprojects {
+    /*
+    * Spring's dependency plugin is needed to provide `dependencyManagement` functionality
+    * used to configure Liferay Portal's BOM (Biil Of Material)
+    */
+    apply plugin: "io.spring.dependency-management"
+
+    /* 
+    * Use the BOM provided for given Liferay Portal version
+    * This allows to automatically set proper versions for dependencies
+    */
+    dependencyManagement {
+        imports {
+            mavenBom("com.liferay.portal:release.portal.bom:7.1.3")
+        }
+    }
+}
+

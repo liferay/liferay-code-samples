@@ -27,6 +27,7 @@
 
 	<modules>
 		<module>generic-ds-plain</module>
+		<module>mvc-ds-freemarker</module>
 		<module>mvc-ds-jsp</module>
 	</modules>
 

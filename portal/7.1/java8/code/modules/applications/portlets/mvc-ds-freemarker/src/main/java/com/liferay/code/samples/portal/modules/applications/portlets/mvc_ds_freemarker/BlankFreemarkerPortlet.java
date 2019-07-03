@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.liferay.code.samples.portal.modules.applications.portlets.mvc_ds_jsp;
+package com.liferay.code.samples.portal.modules.applications.portlets.mvc_ds_freemarker;
 
-import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.util.bridges.freemarker.FreeMarkerPortlet;
 
 import javax.portlet.Portlet;
 
@@ -28,20 +28,21 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	immediate = true,
 	property = {
-		"com.liferay.portlet.css-class-wrapper=portlet-jsp",				// CSS class to be added to the portlet's HTML element
+		"com.liferay.portlet.css-class-wrapper=portlet-freemarker",			// CSS class to be added to the portlet's HTML element
 		"com.liferay.portlet.display-category=category.sample",				// category to which this portlet will be added in applications menu
 		"com.liferay.portlet.header-portlet-css=/css/main.css",				// portlet specific CSS
 		"com.liferay.portlet.instanceable=true",							// can more that one istance be added to a page 
-		"javax.portlet.name=" + JSPPortlet.NAME,							// portlet's name
+		"javax.portlet.name=" + BlankFreemarkerPortlet.NAME,				// portlet's name
 		"javax.portlet.init-param.template-path=/",							// relative path to all display templates
-		"javax.portlet.init-param.view-template=/view.jsp",					// the path to default view JSP page
+		"javax.portlet.init-param.view-template=/templates/view.ftl",		// the path to default view Freemarker template
 		"javax.portlet.resource-bundle=content.Language",					// the resource bundle file for I18N
-		"javax.portlet.security-role-ref=power-user,user"					// references to security roles 
+		"javax.portlet.security-role-ref=power-user,user",					// references to security roles 
+		"javax.portlet.version=3.0"											// opt-in to use Portlet 3.0 runtime functionality
 	},
 	service = Portlet.class
 )
-public class JSPPortlet extends MVCPortlet {
+public class BlankFreemarkerPortlet extends FreeMarkerPortlet {
 
-	public static final String NAME = "mvc_ds_jsp_portlet";
+	public static final String NAME = "mvc_ds_freemarker_portlet";
 
 }

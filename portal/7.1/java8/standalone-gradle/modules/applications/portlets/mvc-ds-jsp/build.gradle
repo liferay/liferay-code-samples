@@ -23,7 +23,11 @@ buildscript {
 	 * Plugin artifacts
 	 */
 	dependencies {
+<<<<<<< HEAD
 		classpath "com.liferay:com.liferay.gradle.plugins:3.13.156"
+=======
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins", version: "3.13.156"
+>>>>>>> Add BOM to jsp portlet sample (standalone Gradle build)
 		classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
 	}
 
@@ -65,7 +69,6 @@ dependencies {
 	compileOnly "javax.portlet:portlet-api:3.0.0"
 	compileOnly "org.osgi:org.osgi.service.component.annotations:1.3.0"
 }
-
 
 /*
  * Set the jar name to ensure it's the same accross all builds

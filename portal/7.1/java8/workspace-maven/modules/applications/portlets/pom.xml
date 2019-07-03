@@ -28,6 +28,7 @@
 	<modules>
 		<module>generic-ds-plain</module>
 		<module>mvc-ds-jsp</module>
+	    <module>action-command-ds</module>
 	</modules>
 
 </project>

@@ -23,11 +23,7 @@ buildscript {
 	 * Plugin artifacts
 	 */
 	dependencies {
-<<<<<<< HEAD
 		classpath "com.liferay:com.liferay.gradle.plugins:3.13.156"
-=======
-		classpath group: "com.liferay", name: "com.liferay.gradle.plugins", version: "3.13.156"
->>>>>>> Add BOM to jsp portlet sample (standalone Gradle build)
 		classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
 	}
 

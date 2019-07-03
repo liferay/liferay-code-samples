@@ -1,17 +1,28 @@
 
 /*
- * TODO: Explain why one needs this plugin and what it does. Reffer to the docs perhaps.
+ *  Apply Liferay Gradle plugin which will 
+ *  - Instruct Bnd to use portalble contracts instead of package dependencies, when possible
+ *  - Add a Bnd plugin to analyze the JSPs
+ *  - Add a Bnd plugin to analyze i18n resource bundles
+ *  - Add a Bnd plugin to analyze SASS/CSS files
  */
 apply plugin: "com.liferay.plugin"
 
+/*
+ * Configure plugins 
+ */
 buildscript {
 
-	// Dependencies of the plugins ?!?!?!
+	/*
+	 * Plugin artifacts
+	 */
 	dependencies {
 		classpath group: "com.liferay", name: "com.liferay.gradle.plugins", version: "3.13.156"
 	}
 
-	// Repositories for getting the depenedencies of the plugins ?!?!?!
+	/*
+	 * Repositories for plugins
+	 */
 	repositories {
 		maven {
 			url "https://repository-cdn.liferay.com/nexus/content/groups/public"
@@ -19,19 +30,25 @@ buildscript {
 	}
 }
 
-// Repositories for getting the depenedencies of project itself ?!?!?!
+/*
+ * Repositories for project depenedencies
+ */
 repositories {
 	maven {
 		url "https://repository-cdn.liferay.com/nexus/content/groups/public"
 	}
 }
 
-// Dependencies of the project itself
+/*
+ * Project depenedencies
+ */
 dependencies {
 	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "3.0.0"
 	compileOnly group: "javax.portlet", name: "portlet-api", version: "3.0.0"
 	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations", version: "1.3.0"
 }
 
-// set the jar name to ensure it's the same accross all builds
+/*
+ * Set the jar name to ensure it's the same accross all builds
+ */
 jar.baseName = 'com.liferay.code.samples.portal.modules.applications.portlets.mvc-ds-jsp'

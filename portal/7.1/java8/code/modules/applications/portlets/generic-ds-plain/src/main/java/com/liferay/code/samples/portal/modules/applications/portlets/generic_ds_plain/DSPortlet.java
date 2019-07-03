@@ -43,7 +43,7 @@ import org.osgi.service.component.annotations.Component;
 )
 public class DSPortlet extends GenericPortlet {
 
-	public static final String NAME = "mvc_ds_freemarker_portlet";
+	public static final String NAME = "plain_ds_portlet";
 
 	@Override
 	protected void doView(RenderRequest request, RenderResponse response)

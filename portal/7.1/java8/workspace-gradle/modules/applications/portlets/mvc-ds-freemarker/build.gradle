@@ -1,10 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
  * Project depenedencies
  */
 =======
 // Dependencies of the project
 >>>>>>> add Gradle workspace build
+=======
+/*
+ * Project depenedencies
+ */
+>>>>>>> Update Gradle workspace to use BOM and "g:a:v" format
 dependencies {
 	compileOnly "com.liferay.portal:com.liferay.portal.kernel"		// version will be taken from BOM
 	compileOnly "com.liferay.portal:com.liferay.util.bridges"		// version will be taken from BOM
@@ -14,10 +20,16 @@ dependencies {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
  * Set the jar name to ensure it's the same accross all builds
  */
 =======
 // set the jar name to ensure it's the same accross all builds
 >>>>>>> add Gradle workspace build
+=======
+/*
+ * Set the jar name to ensure it's the same accross all builds
+ */
+>>>>>>> Update Gradle workspace to use BOM and "g:a:v" format
 jar.baseName = 'com.liferay.code.samples.portal.modules.applications.portlets.mvc-ds-freemarker'

@@ -18,9 +18,9 @@
 	<dependencyManagement>
         <dependencies>
 			<dependency>
-				<groupId>com.liferay</groupId>
-				<artifactId>com.liferay.ce.portal.bom</artifactId>
-				<version>7.1.0</version>
+				<groupId>com.liferay.portal</groupId>
+				<artifactId>release.portal.bom</artifactId>
+				<version>7.1.3</version>
 				<type>pom</type>
                 <scope>import</scope>
 			</dependency>

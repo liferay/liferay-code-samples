@@ -11,4 +11,22 @@ displayFiles:
   - name: Documentation 
     highlighting: markdown 
     path: README.md
+  - name: Portlet class
+    highlighting: java 
+    path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/mvc_ds_freemarker/BlankFreemarkerPortlet.java
+  - name: Freemarker init template
+    highlighting: markup 
+    path: src/main/resources/templates/init.ftl
+  - name: Freemarker view template
+    highlighting: markup 
+    path: src/main/resources/templates/view.ftl
+  - name: Bnd configuration
+    highlighting: yaml 
+    path: bnd.bnd
+  - name: Maven POM
+    highlighting: xml 
+    path: pom.xml
+  - name: Gradle build
+    highlighting: groovy 
+    path: build.gradle
 

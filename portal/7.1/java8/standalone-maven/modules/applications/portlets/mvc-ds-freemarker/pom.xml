@@ -118,8 +118,8 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
-			<plugin>
+
+      <plugin>
 				<!-- 
 					Build css files from sass
 				-->

@@ -1,0 +1,13 @@
+Bundle-Name: action-command-ds
+Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds.constants
+-contract: JavaPortlet,JavaServlet
+-jsp: *.jsp,*.jspf
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+-plugin.resourcebundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *
+
+# Include source code in the bundle
+-sources: true

@@ -26,6 +26,7 @@
 	</dependencies>
 
 	<modules>
+		<module>action-command-ds</module>
 		<module>generic-ds-plain</module>
 		<module>mvc-ds-jsp</module>
 	</modules>

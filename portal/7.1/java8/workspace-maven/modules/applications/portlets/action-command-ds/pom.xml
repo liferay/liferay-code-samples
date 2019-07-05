@@ -32,9 +32,11 @@
 		</dependency>
 
 		<dependency>
+			<!-- Liferay's taglib for JSPs -->
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.util.taglib</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -42,23 +44,15 @@
 	</dependencies>
 
 	<build>
+
+		<!-- set the jar name to ensure it's the same accross all builds -->
+		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds</finalName>
+
 		<plugins>
-			
 			<plugin>
+				<!-- Use pre-configured CSS builder plugin to compile scss files -->
 				<groupId>com.liferay</groupId>
 				<artifactId>com.liferay.css.builder</artifactId>
-				<version>3.0.0</version>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>build</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<baseDir>src/main/resources/META-INF/resources</baseDir>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -1,0 +1,24 @@
+name: "Portlet with DS using an ActionCommand"
+description: Demonstrates how to use an ActionCommand to hold the Portlet's actions.
+displayFiles:
+  - name: Documentation
+    highlighting: markdown 
+    path: README.md
+  - name: Portlet class
+    highlighting: java 
+    path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/action_command_ds/portlet/ActionCommandPortlet.java
+  - name: ActionCommand class
+    highlighting: java 
+    path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/action_command_ds/command/GreeterMVCActionCommand.java
+  - name: Bnd configuration
+    highlighting: properies 
+    path: bnd.bnd
+  - name: Commond Bnd configuration
+    highlighting: properies 
+    path: bnd.bnd
+  - name: Maven POM
+    highlighting: xml 
+    path: pom.xml
+  - name: Gradle build
+    highlighting: groovy 
+    path: build.gradle

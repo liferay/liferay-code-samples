@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds</groupId>
+	<artifactId>action-command-ds</artifactId>
+	<version>1.0.0</version>
+
+	<parent>
+		<groupId>workspace.maven</groupId>
+		<artifactId>modules.applications.portlets</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
+	<name> Portlet :: MVC + ActionCommand + DS + JSP </name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<!-- Liferay's MVC Portlet framework -->
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>com.liferay.portal.kernel</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- Declarative services annotations -->
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.component.annotations</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- Liferay's taglib for JSPs -->
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>com.liferay.util.taglib</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+
+		<!-- set the jar name to ensure it's the same accross all builds -->
+		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds</finalName>
+
+		<plugins>
+			<plugin>
+				<!-- Use pre-configured CSS builder plugin to compile scss files -->
+				<groupId>com.liferay</groupId>
+				<artifactId>com.liferay.css.builder</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

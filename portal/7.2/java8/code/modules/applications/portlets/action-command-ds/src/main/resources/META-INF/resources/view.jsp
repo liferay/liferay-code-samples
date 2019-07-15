@@ -6,7 +6,7 @@
 	<b><liferay-ui:message key="actioncommand.caption"/></b>
 </p>
 
-<p><liferay-portlet:actionURL name="greet" var="greetURL"/></p>
+<liferay-portlet:actionURL name="greet" var="greetURL"/>
 
 <aui:form action="<%= greetURL %>" method="post" name="fm">
 

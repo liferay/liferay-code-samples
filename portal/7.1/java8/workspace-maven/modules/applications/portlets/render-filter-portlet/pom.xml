@@ -4,18 +4,18 @@
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.liferay.code.samples.portal.modules.applications.portlets</groupId>
-	<artifactId>com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds</artifactId>
+	<groupId>com.liferay.code.samples.portal.modules.applications.portlets.render_filter</groupId>
+	<artifactId>render-filter-portlet</artifactId>
 	<version>1.0.0</version>
 
+	<name> RenderFilter :: MVC Portlet + RenderFilter + JSP </name>
+
 	<parent>
-		<groupId>workspace.maven</groupId>
 		<artifactId>modules.applications.portlets</artifactId>
-		<version>1.0.0</version>
+		<groupId>workspace.maven</groupId>
+	    <version>1.0.0</version>
 		<relativePath>../pom.xml</relativePath>
-	</parent>
-	
-	<name> Portlet :: MVC + ActionCommand + DS + JSP </name>
+  	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,7 +48,7 @@
 
 	<build>
 		<!-- set the jar name to ensure it's the same accross all builds -->
-		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds</finalName>
+		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.render-filter-portlet</finalName>
 
 		<plugins>
 			<plugin>
@@ -58,4 +58,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>

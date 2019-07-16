@@ -143,6 +143,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-		</plugins>
+git sta		</plugins>
 	</build>
 </project>

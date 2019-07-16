@@ -12,7 +12,6 @@ import javax.portlet.filter.FilterConfig;
 import javax.portlet.filter.PortletFilter;
 import javax.portlet.filter.RenderFilter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,6 +26,8 @@ public class EncodingPersonEmailsRenderFilter implements RenderFilter {
     @Override
     public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain)
             throws IOException, PortletException {
+
+        System.out.println("EncodingPersonEmailsRenderFilter");
 
         //This is executed before the portlet render
         Optional.ofNullable((List<Person>)request.getAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE))

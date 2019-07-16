@@ -5,10 +5,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
-
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds</groupId>
-	<artifactId>action-command-ds</artifactId>
+	<groupId>com.liferay.code.samples.portal.modules.applications.portlets.render_filter</groupId>
+	<artifactId>render-filter-portlet</artifactId>
 	<version>1.0.0</version>
 
 	<properties>
@@ -29,8 +28,8 @@
 			<version>4.0.8</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Portlet API -->
 		<dependency>
-			<!-- Portlet API -->
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
 			<version>3.0.0</version>
@@ -48,18 +47,19 @@
 			<version>1.2</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Declarative services annotations -->
 		<dependency>
-			<!-- Declarative services annotations -->
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.service.component.annotations</artifactId>
-			<version>1.4.0</version>
+			<version>1.3.0</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+
 	<build>
 
 		<!-- set the jar name to ensure it's the same accross all builds -->
-		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds</finalName>
+		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.render-filter-portlet</finalName>
 
 		<plugins>
 
@@ -76,11 +76,11 @@
 				</configuration>
 			</plugin>
 
+			<!-- 
+				Generates OSGI bundle jars by scanning the classpath,
+				module's bytecode and the meta-data provided inproject's `bnd.bnd` file 
+			-->
 			<plugin>
-				<!-- 
-					Generates OSGI bundle jars by scanning the classpath,
-					module's bytecode and the meta-data provided inproject's `bnd.bnd` file 
-				-->
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
 				<version>3.5.0</version>
@@ -92,21 +92,23 @@
 					</execution>
 				</executions>
 				<dependencies>
-					<!-- 
-						Add dependency on Liferay's BND plugins 
-					-->
+					<dependency>
+						<groupId>biz.aQute.bnd</groupId>
+						<artifactId>biz.aQute.bndlib</artifactId>
+						<version>3.5.0</version>
+					</dependency>
 					<dependency>
 						<groupId>com.liferay</groupId>
 						<artifactId>com.liferay.ant.bnd</artifactId>
-						<version>2.0.50</version>
+						<version>3.0.7</version>
 					</dependency>
 				</dependencies>
 			</plugin>
 
+			<!-- 
+				Build css files from sass
+			-->
 			<plugin>
-				<!-- 
-					Build css files from sass
-				-->
 				<groupId>com.liferay</groupId>
 				<artifactId>com.liferay.css.builder</artifactId>
 				<version>3.0.0</version>
@@ -119,7 +121,6 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- Where are the scss files located -->
 					<baseDir>src/main/resources/META-INF/resources</baseDir>
 				</configuration>
 			</plugin>
@@ -142,7 +143,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>

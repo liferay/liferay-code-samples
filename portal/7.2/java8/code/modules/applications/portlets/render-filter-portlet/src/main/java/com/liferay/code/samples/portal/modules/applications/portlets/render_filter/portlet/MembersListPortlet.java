@@ -10,9 +10,6 @@ import org.osgi.service.component.annotations.Component;
 
 import java.io.IOException;
 
-/**
- * @author davidgomez
- */
 @Component(
 	immediate = true,
 	property = {

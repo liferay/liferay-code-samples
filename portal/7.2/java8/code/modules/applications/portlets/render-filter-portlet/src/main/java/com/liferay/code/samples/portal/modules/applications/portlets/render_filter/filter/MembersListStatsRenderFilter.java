@@ -16,13 +16,6 @@ import javax.portlet.filter.RenderFilter;
 import java.io.IOException;
 import java.util.concurrent.atomic.LongAdder;
 
-@Component(
-        immediate = true,
-        property = {
-                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME
-        },
-        service = PortletFilter.class
-)
 /**
  * Filter that keeps track of how many times the portlet has been rendered and how long it takes to render.
  *
@@ -38,6 +31,13 @@ import java.util.concurrent.atomic.LongAdder;
  * the <code>accumulatedTimeMs</code>.
  *
  */
+@Component(
+        immediate = true,
+        property = {
+                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME
+        },
+        service = PortletFilter.class
+)
 public class MembersListStatsRenderFilter implements RenderFilter {
 
     //Thread safe - accumulator that keeps the number of times the portlet has been rendered

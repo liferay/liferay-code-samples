@@ -12,6 +12,13 @@ import javax.portlet.PortletException;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * ActionCommand that simulates the loading of a list of users and puts it as an attribute of the ActionRequest so that
+ * it is available during the render phase.
+ *
+ * In a real example, this user list will be probably fetched from a DB or from another system using a Service. To keep
+ * this example simple, a hard-coded list of data is returned.
+ */
 @Component(
         immediate = true,
         property = {
@@ -20,13 +27,6 @@ import java.util.List;
         },
         service = MVCActionCommand.class
 )
-/**
- * ActionCommand that simulates the loading of a list of users and puts it as an attribute of the ActionRequest so that
- * it is available during the render phase.
- *
- * In a real example, this user list will be probably fetched from a DB or from another system using a Service. To keep
- * this example simple, a hard-coded list of data is returned.
- */
 public class UserListMVCActionCommand implements MVCActionCommand {
 
     @Override

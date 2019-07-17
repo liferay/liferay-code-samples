@@ -1,11 +1,18 @@
-Bundle-Name: action-command-ds
-Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds
-Bundle-Version: 1.0.0
-Export-Package: com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds.constants
+# Use the common Bnd instructions such as bundle name and version
+-include: ./common.bnd
+
+# Instruct Bnd to use portalble contracts instead of package dependencies, when possible
 -contract: JavaPortlet,JavaServlet
--jsp: *.jsp,*.jspf
+
+# Add a plugin to analyze the JSPs
 -plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
--plugin.resourcebundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+# Tell the JSP plugin where to find JSP files
+-jsp: *.jsp,*.jspf
+
+# Add a plugin to analyze i18n resource bundles
+-plugin.bundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+
+# Add a plugin to analyze SASS/CSS files
 -plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
 -sass: *
 

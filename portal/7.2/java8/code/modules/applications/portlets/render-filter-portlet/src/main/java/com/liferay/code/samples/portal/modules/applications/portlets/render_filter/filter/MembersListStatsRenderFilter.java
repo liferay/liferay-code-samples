@@ -22,6 +22,12 @@ import java.util.concurrent.atomic.LongAdder;
  * This filter illustrates how a RenderFilter can be used for actions that require processing before and after the
  * actual render of the portlet's response.
  *
+ * A unique instance of this filter will be created and added to the FilterChain associated to the filter specified in
+ * property <code>javax.portlet.name</code> in the <code>@Component</code> configuration.
+ *
+ * The portlet's filterChain is created keeping the filters ordered by the <code>service.ranking:Integer</code> value
+ * configured in the <code>property</code> field of <code>@Component</code> annotation.
+ *
  * In this case two <code>LongAdder</code> are used to keep track of <code>hits</code> and <code>accumulatedTimeMs</code>
  * spent rendering the portlet. As the Filter is instanced once, we can use fields to store both values, but we need to
  * be aware of concurrent updates (Thread Safety)
@@ -34,7 +40,8 @@ import java.util.concurrent.atomic.LongAdder;
 @Component(
         immediate = true,
         property = {
-                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME
+                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
+                "service.ranking:Integer=100"
         },
         service = PortletFilter.class
 )

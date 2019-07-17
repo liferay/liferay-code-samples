@@ -30,10 +30,6 @@ public class MembersListPortlet extends MVCPortlet {
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws IOException, PortletException {
-		System.out.println("Portlet.doView");
-		renderRequest.setAttribute("RENDER_PROCESS_TIME ", "1 ms");
-		renderRequest.setAttribute("RENDER_TIME ", "1 ms");
-		renderResponse.setProperty("RENDER_TIME", "9939");
 		super.doView(renderRequest, renderResponse);
 	}
 }

@@ -22,16 +22,21 @@ import java.util.stream.Collectors;
         property = "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
         service = PortletFilter.class
 )
+/**
+ * RenderFilter that checks if a list of <code>Person</code> is present to be rendered and, in that case,
+ * it ofuscates the emails before the portlet is rendered.
+ *
+ * This filter shows how RenderFilters can be used to alter the request/response data before the portlet can render it.
+ */
 public class EncodingPersonEmailsRenderFilter implements RenderFilter {
     @Override
     public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain)
             throws IOException, PortletException {
 
-        System.out.println("EncodingPersonEmailsRenderFilter");
-
         //This is executed before the portlet render
         Optional.ofNullable((List<Person>)request.getAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE))
-                .ifPresent(personList -> request.setAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE, encodeEmails(personList)));
+                .ifPresent(personList ->
+                        request.setAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE, ofuscateEmails(personList)));
 
         // Invoke the rest of the filters in the chain
         //  (it also invokes the Portlet render method if this is the last filter in the chain
@@ -39,13 +44,20 @@ public class EncodingPersonEmailsRenderFilter implements RenderFilter {
 
     }
 
-    private List<Person> encodeEmails(List<Person> list) {
+    private List<Person> ofuscateEmails(List<Person> list) {
         return list.stream()
-                .map(this::encodePersonEmail)
+                .map(this::ofuscatePersonEmail)
                 .collect(Collectors.toList());
     }
 
-    private Person encodePersonEmail(Person person) {
+    /**
+     *  Replaces the last three characters before and after the '@' in emails with dots
+     *  For example an email like foobar@foobar.com will be changed to foo...@....bar.com
+     *
+     * @param person The Person which email should be ofuscated
+     * @return a new <code>Person</code> (<code>Person</code> is inmutable) with the ofuscated email.
+     */
+    private Person ofuscatePersonEmail(Person person) {
         return new Person(person.getName(),
                           person.getEmail().replaceFirst("(.+)(...)@(...)(.*)", "$1...@...$4"));
 

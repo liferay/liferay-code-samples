@@ -1,8 +1,5 @@
 package com.liferay.code.samples.portal.modules.applications.portlets.render_filter.constants;
 
-/**
- * @author davidgomez
- */
 public class MembersListPortletKeys {
 
 	public static final String MEMBERSLIST_PORTLET_NAME =

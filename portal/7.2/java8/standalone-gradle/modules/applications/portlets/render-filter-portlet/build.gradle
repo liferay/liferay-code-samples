@@ -9,7 +9,7 @@ apply plugin: "com.liferay.plugin"
 
 /*
  * Spring's dependency plugin is needed to provide `dependencyManagement` functionality
- * used to configure Liferay Portal's BOM (Biil Of Material)
+ * used to configure Liferay Portal's BOM (Bill Of Material)
  */
 buildscript {
 	dependencies {
@@ -48,4 +48,4 @@ dependencies {
 /*
  * Set the jar name to ensure it's the same accross all builds
  */
-jar.baseName = 'com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds'
+jar.baseName = 'com.liferay.code.samples.portal.modules.applications.portlets.render-filter-portlet'

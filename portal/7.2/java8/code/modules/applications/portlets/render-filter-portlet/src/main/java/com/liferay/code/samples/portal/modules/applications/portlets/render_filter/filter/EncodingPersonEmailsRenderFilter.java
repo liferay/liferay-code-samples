@@ -22,16 +22,28 @@ import java.util.stream.Collectors;
  * it ofuscates the emails before the portlet is rendered.
  *
  * This filter shows how RenderFilters can be used to alter the request/response data before the portlet can render it.
+ *
+ * A unique instance of this filter will be created and added to the FilterChain associated to the filter specified in
+ * property <code>javax.portlet.name</code> in the <code>@Component</code> configuration.
+ *
+ * The portlet's filterChain is created keeping the filters ordered by the <code>service.ranking:Integer</code> value
+ * configured in the <code>property</code> field of <code>@Component</code> annotation.
+ *
  */
 @Component(
         immediate = true,
-        property = "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
+        property = {
+                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
+                "service.ranking:Integer=1"
+        },
         service = PortletFilter.class
 )
 public class EncodingPersonEmailsRenderFilter implements RenderFilter {
     @Override
     public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain)
             throws IOException, PortletException {
+
+        System.out.println( this.getClass().getSimpleName() + " : " + System.identityHashCode(this));
 
         //This is executed before the portlet render
         Optional.ofNullable((List<Person>)request.getAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE))

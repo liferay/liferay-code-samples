@@ -51,10 +51,6 @@ The `RenderFilter` interface forces to implement, among others, a `doFilter` met
 
 A reference to the `FilterChain` is also provided as an argument to the method. Whenever the we want to continue with the invocation of the next filter (or the portlet phase execution if the filter is the last on the chain) our code should invoke `chain.doFilter(request, response)`
 
-<!-- TODO: check this.
-The filter will be placed in the filter chain according to the value configured in `javax.portlet.init-param.order=some_number` property 
- -->
-
 ### 6. A Second Render filter to keep Render Stats
 
 There is a second filter in this example which is keeping some stats on the number of times that the portlet has been rendered and how much total time has been spent in render phase.
@@ -62,20 +58,30 @@ There is a second filter in this example which is keeping some stats on the numb
 The code for this second filter can be found on the `MembersListStatsRenderFilter`
 
 The goal of this second filter is to show how both filters are automatically picked and added to the FilterChain that will be executed around the Render of the portlet.
+
+### 7. Specifying the order in which the filters are applied
+For each portlet, a `FilterChain` is created and the filters that should be applied to the portlet.
+
+The `FilterChain` will keep the filters ordered by the  value configured in `"service.ranking:Integer=n"` property. The highest number means the higher precedence.
+
+> According to the Portlet 3.0 Specification the Filters in the filter chain are placed in the same order they are defined in the `portlet.xml` descriptor file. 
+>
+> The equivalent of the order in which is defined in a file in the case of OSGi would be the the OSGi service ranking. 
+
  
- ### 7. Build and deploy.
+### 8. Build and deploy.
 
- Once you have created the components described above, you can build the project and copy the .jar file inside the `osgi/modules` located within your root liferay installation.
+Once you have created the components described above, you can build the project and copy the .jar file inside the `osgi/modules` located within your root liferay installation.
 
- For example, using [blade CLI](https://portal.liferay.dev/docs/7-2/tutorials/-/knowledge_base/t/blade-cli) tool:
+For example, using [blade CLI](https://portal.liferay.dev/docs/7-2/tutorials/-/knowledge_base/t/blade-cli) tool:
 
- ```
- blade gw deploy
- ```
+```
+$ blade gw deploy
+```
 
- After you copy the .jar file to `osgi/modules` you should see that the module has started
+After you copy the .jar file to `osgi/modules` you should see that the module has started
 
- ```
+```
 [Refresh Thread: Equinox Container: d98f6888-c84c-42ee-8b4f-6c9cb1d13c5b][BundleStartStopLogger:39] STARTED com.liferay.code.samples.portal.modules.applications.portlets.render_filter_1.0.0 [1022]
 ```
 

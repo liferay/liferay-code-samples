@@ -14,15 +14,11 @@ import javax.portlet.filter.FilterConfig;
 import javax.portlet.filter.PortletFilter;
 import javax.portlet.filter.RenderFilter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.atomic.LongAdder;
+import java.util.stream.Collectors;
 
-@Component(
-        immediate = true,
-        property = {
-                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME
-        },
-        service = PortletFilter.class
-)
 /**
  * Filter that keeps track of how many times the portlet has been rendered and how long it takes to render.
  *
@@ -38,6 +34,14 @@ import java.util.concurrent.atomic.LongAdder;
  * the <code>accumulatedTimeMs</code>.
  *
  */
+@Component(
+        immediate = true,
+        property = {
+                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
+                "javax.portlet.init-param.ordinal=1"
+        },
+        service = PortletFilter.class
+)
 public class MembersListStatsRenderFilter implements RenderFilter {
 
     //Thread safe - accumulator that keeps the number of times the portlet has been rendered
@@ -48,6 +52,8 @@ public class MembersListStatsRenderFilter implements RenderFilter {
 
     @Override
     public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain) throws IOException, PortletException {
+
+        System.out.println(this.getClass().getSimpleName() + ": " + System.identityHashCode(this));
 
         //Before invoking the portlet,
         long startTime = System.nanoTime();
@@ -77,6 +83,7 @@ public class MembersListStatsRenderFilter implements RenderFilter {
     @Override
     public void init(FilterConfig filterConfig) throws PortletException {
     }
+
 
     @Override
     public void destroy() {

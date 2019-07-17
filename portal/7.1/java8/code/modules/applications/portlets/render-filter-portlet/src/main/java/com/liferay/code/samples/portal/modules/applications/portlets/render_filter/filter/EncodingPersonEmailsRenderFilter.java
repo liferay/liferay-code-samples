@@ -17,21 +17,26 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 
-@Component(
-        immediate = true,
-        property = "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
-        service = PortletFilter.class
-)
 /**
  * RenderFilter that checks if a list of <code>Person</code> is present to be rendered and, in that case,
  * it ofuscates the emails before the portlet is rendered.
  *
  * This filter shows how RenderFilters can be used to alter the request/response data before the portlet can render it.
  */
+@Component(
+        immediate = true,
+        property =  {
+                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
+                "javax.portlet.init-param.ordinal=100"
+        },
+        service = PortletFilter.class
+)
 public class EncodingPersonEmailsRenderFilter implements RenderFilter {
     @Override
     public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain)
             throws IOException, PortletException {
+
+        System.out.println(this.getClass().getSimpleName() + ": " + System.identityHashCode(this));
 
         //This is executed before the portlet render
         Optional.ofNullable((List<Person>)request.getAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE))

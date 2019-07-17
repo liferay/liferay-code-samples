@@ -1,5 +1,5 @@
 name: "Render Filter for Portlet"
-description: Demonstrates to use a Render Filter to alter any information before being rendered or to measure time spent rendering. 
+description: Demonstrates to use a Render Filter to alter any information before being rendered or to measure time spent rendering. See README.md for detailes info
 displayFiles:
   - name: Documentation
     highlighting: markdown 
@@ -13,6 +13,12 @@ displayFiles:
   - name: MembersListStatsRenderFilter class
     highlighting: java 
     path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/render_filter/filter/MembersListStatsRenderFilter.java
+  - name: Person class
+    highlighting: java 
+    path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/render_filter/model/Person.java
+  - name: UserListMVCActionCommand class
+    highlighting: java 
+    path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/render_filter/command/UserListMVCActionCommand.java
   - name: Bnd configuration
     highlighting: properies 
     path: bnd.bnd

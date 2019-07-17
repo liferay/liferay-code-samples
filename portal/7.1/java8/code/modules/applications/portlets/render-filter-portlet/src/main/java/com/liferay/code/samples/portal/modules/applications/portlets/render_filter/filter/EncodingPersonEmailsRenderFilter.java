@@ -36,8 +36,6 @@ public class EncodingPersonEmailsRenderFilter implements RenderFilter {
     public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain)
             throws IOException, PortletException {
 
-        System.out.println(this.getClass().getSimpleName() + ": " + System.identityHashCode(this));
-
         //This is executed before the portlet render
         Optional.ofNullable((List<Person>)request.getAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE))
                 .ifPresent(personList ->

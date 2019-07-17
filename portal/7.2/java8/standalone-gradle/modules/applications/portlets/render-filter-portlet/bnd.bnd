@@ -1,4 +1,8 @@
-Bundle-Name: render-filter-portlet
-Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.render_filter
-Bundle-Version: 1.0.0
-Export-Package: com.liferay.code.samples.portal.modules.applications.portlets.render_filter.constants
+# Use the common Bnd instructions such as bundle name and version
+-include: ./common.bnd
+
+# Since we are using Liferay's plugin in Gradle, the following is automatically taken care of 
+#   - Instruct Bnd to use portalble contracts instead of package dependencies, when possible
+
+# Include source code in the bundle
+-sources: true

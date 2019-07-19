@@ -7,7 +7,3 @@
 # Add a plugin to analyze i18n resource bundles
 -plugin.bundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
 
-# Include source code in the bundle
--sources: true
-
-

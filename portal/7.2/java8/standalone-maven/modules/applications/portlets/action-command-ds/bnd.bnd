@@ -15,7 +15,3 @@
 # Add a plugin to analyze SASS/CSS files
 -plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
 -sass: *
-
-
-# Include source code in the bundle
--sources: true

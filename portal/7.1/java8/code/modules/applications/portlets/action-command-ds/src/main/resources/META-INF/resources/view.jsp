@@ -1,12 +1,14 @@
 <%@ include file="/init.jsp" %>
 
-<p><%= renderRequest.getAttribute("GREETER_MESSAGE") %></p>
+<%
+	String greeting = (String)renderRequest.getAttribute("GREETER_MESSAGE");
+	if (greeting == null) greeting = "Hello stranger!";
+%>
+<liferay-portlet:actionURL name="greet" var="greetURL"/>
 
-<p>
-	<b><liferay-ui:message key="actioncommand.caption"/></b>
-</p>
+<h3><liferay-ui:message key="mvc_action_command_ds_jsp_portlet.caption"/></h3>
 
-<p><liferay-portlet:actionURL name="greet" var="greetURL"/></p>
+<p><%=greeting %></p>
 
 <aui:form action="<%= greetURL %>" method="post" name="fm">
 

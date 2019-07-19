@@ -1,7 +1,6 @@
 Bundle-Name: action-command-ds
 Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds
 Bundle-Version: 1.0.0
-Export-Package: com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds.constants
 
 # Include source code in the bundle
 -sources: true

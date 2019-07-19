@@ -1,21 +1,41 @@
 <%@ include file="/init.jsp" %>
 
 <%
-	String greeting = (String)renderRequest.getAttribute("GREETER_MESSAGE");
-	if (greeting == null) greeting = "Hello stranger!";
+	String greeting = (String)renderRequest.getPortletSession().getAttribute("GREETER_MESSAGE");
 %>
+
 <liferay-portlet:actionURL name="greet" var="greetURL"/>
+<liferay-portlet:actionURL name="forget" var="forgetURL"/>
 
 <h3><liferay-ui:message key="mvc_action_command_ds_jsp_portlet.caption"/></h3>
 
-<p><%=greeting %></p>
+<c:choose>
 
-<aui:form action="<%= greetURL %>" method="post" name="fm">
+    <c:when test = "<%= greeting == null %>">
 
-	<aui:input name="name" type="text"/>
+		<p>Hello stranger! Please tell me your name.</p>
+		
+		<aui:form action="<%= greetURL %>" method="post" name="fm">
+		
+			<aui:input name="name" type="text"/>
+		
+			<aui:button-row>
+				<aui:button type="submit"></aui:button>
+			</aui:button-row>
+		
+		</aui:form>
 
-	<aui:button-row>
-		<aui:button type="submit"></aui:button>
-	</aui:button-row>
+	</c:when>
+    
+	<c:otherwise>
+		<p><%=greeting %></p>
 
-</aui:form>
+		<aui:form action="<%= forgetURL %>" method="post" name="fm">
+			<aui:button-row>
+				<aui:button type="submit" value="mvc_action_command_ds_jsp_portlet.forget-me"></aui:button>
+			</aui:button-row>
+		</aui:form>
+		
+	</c:otherwise>
+ </c:choose>
+

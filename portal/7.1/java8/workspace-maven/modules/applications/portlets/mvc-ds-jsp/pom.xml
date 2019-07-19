@@ -7,7 +7,7 @@
 >
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.liferay.code.samples.portal.modules.applications.potlets</groupId>
+	<groupId>com.liferay.code.samples.portal.modules.applications.portlets</groupId>
 	<artifactId>com.liferay.code.samples.portal.modules.applications.portlets.mvc-ds-jsp</artifactId>
 	<version>1.0.0</version>
 

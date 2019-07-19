@@ -1,5 +1,7 @@
 package com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds.command;
 
+import com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds.portlet.ActionCommandPortlet;
+
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
@@ -14,7 +16,7 @@ import javax.portlet.PortletException;
 @Component(
         immediate = true,
         property = {
-                "javax.portlet.name=com_liferay_code_samples_portal_modules_applications_portlets_action_command_ds_ActionCommandPortlet",
+                "javax.portlet.name=" + ActionCommandPortlet.NAME,
                 "mvc.command.name=greet"
         },
         service = MVCActionCommand.class

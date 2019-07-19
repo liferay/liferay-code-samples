@@ -30,7 +30,7 @@ public class GreeterMVCActionCommand implements MVCActionCommand {
             _log.info("Hello " + name);
         }
 
-        String greetingMessage = "Hello " + name + "! Welcome to OSGi";
+        String greetingMessage = "Hello " + name + "!";
 
         actionRequest.setAttribute("GREETER_MESSAGE", greetingMessage);
         SessionMessages.add(actionRequest, "greetingMessage", greetingMessage);

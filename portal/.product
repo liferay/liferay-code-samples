@@ -7,3 +7,4 @@ welcomeFile: README.md
 defaultVersion: 7.1
 defaultJavaVersion: 8
 defaultBuildEnv: workspace-gradle
+publicRepositoryRoot: https://github.com/liferay/liferay-code-samples/tree/master/portal

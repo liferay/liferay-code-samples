@@ -29,9 +29,4 @@ public class MembersListPortlet extends MVCPortlet {
 	public static final String MEMBERLIST_ATTRIBUTE 		= "memberlist";
 	public static final String LOAD_USERS_ACTION 			= "loadUsers";
 
-	@Override
-	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
-			throws IOException, PortletException {
-		super.doView(renderRequest, renderResponse);
-	}
 }

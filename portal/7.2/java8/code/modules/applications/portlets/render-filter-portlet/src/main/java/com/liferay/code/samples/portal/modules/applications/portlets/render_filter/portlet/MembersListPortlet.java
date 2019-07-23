@@ -25,10 +25,9 @@ import java.io.IOException;
 )
 public class MembersListPortlet extends MVCPortlet {
 
-	public static final String MEMBERSLIST_PORTLET_NAME =
-		"com_liferay_code_samples_portal_modules_applications_portlets_render_filter_MembersListPortlet";
-	public static final String MEMBERLIST_ATTRIBUTE = "memberlist";
-	public static final String LOAD_USERS_ACTION = "loadUsers";
+	public static final String MEMBERSLIST_PORTLET_NAME 	= "member_list_portlet";
+	public static final String MEMBERLIST_ATTRIBUTE 		= "memberlist";
+	public static final String LOAD_USERS_ACTION 			= "loadUsers";
 
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)

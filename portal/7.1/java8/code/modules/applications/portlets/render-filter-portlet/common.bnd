@@ -1,7 +1,6 @@
 Bundle-Name: render-filter-portlet
 Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.render_filter
 Bundle-Version: 1.0.0
-Export-Package: com.liferay.code.samples.portal.modules.applications.portlets.render_filter.constants
 
 # Include source code in the bundle
 -sources: true

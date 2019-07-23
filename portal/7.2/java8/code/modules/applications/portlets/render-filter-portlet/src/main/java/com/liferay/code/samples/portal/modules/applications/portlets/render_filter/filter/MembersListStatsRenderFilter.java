@@ -1,7 +1,7 @@
 package com.liferay.code.samples.portal.modules.applications.portlets.render_filter.filter;
 
 
-import com.liferay.code.samples.portal.modules.applications.portlets.render_filter.constants.MembersListPortletKeys;
+import com.liferay.code.samples.portal.modules.applications.portlets.render_filter.portlet.MembersListPortlet;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import org.osgi.service.component.annotations.Component;
@@ -40,7 +40,7 @@ import java.util.concurrent.atomic.LongAdder;
 @Component(
         immediate = true,
         property = {
-                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
+                "javax.portlet.name=" + MembersListPortlet.MEMBERSLIST_PORTLET_NAME,
                 "service.ranking:Integer=100"
         },
         service = PortletFilter.class
@@ -74,8 +74,8 @@ public class MembersListStatsRenderFilter implements RenderFilter {
         if (LOG.isInfoEnabled()) {
             long totalHits = hits.longValue();
             long averageRenderTimeNs = accumulatedTimeMs.longValue() / totalHits;
-            LOG.info("Portlet " + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME + " rendered in " + renderTime + " ms");
-            LOG.info("Portlet " + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME + " rendered " + hits.longValue()
+            LOG.info("Portlet " + MembersListPortlet.MEMBERSLIST_PORTLET_NAME + " rendered in " + renderTime + " ms");
+            LOG.info("Portlet " + MembersListPortlet.MEMBERSLIST_PORTLET_NAME + " rendered " + hits.longValue()
                     + " with an average " + averageRenderTimeNs + " ns render time");
         }
     }

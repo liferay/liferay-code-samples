@@ -1,7 +1,7 @@
 package com.liferay.code.samples.portal.modules.applications.portlets.render_filter.filter;
 
-import com.liferay.code.samples.portal.modules.applications.portlets.render_filter.constants.MembersListPortletKeys;
 import com.liferay.code.samples.portal.modules.applications.portlets.render_filter.model.Person;
+import com.liferay.code.samples.portal.modules.applications.portlets.render_filter.portlet.MembersListPortlet;
 import org.osgi.service.component.annotations.Component;
 
 import javax.portlet.PortletException;
@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 @Component(
         immediate = true,
         property = {
-                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
+                "javax.portlet.name=" + MembersListPortlet.MEMBERSLIST_PORTLET_NAME,
                 "service.ranking:Integer=1"
         },
         service = PortletFilter.class
@@ -44,9 +44,9 @@ public class EncodingPersonEmailsRenderFilter implements RenderFilter {
             throws IOException, PortletException {
 
         //This is executed before the portlet render
-        Optional.ofNullable((List<Person>)request.getAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE))
+        Optional.ofNullable((List<Person>)request.getAttribute(MembersListPortlet.MEMBERLIST_ATTRIBUTE))
                 .ifPresent(personList ->
-                        request.setAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE, ofuscateEmails(personList)));
+                        request.setAttribute(MembersListPortlet.MEMBERLIST_ATTRIBUTE, ofuscateEmails(personList)));
 
         // Invoke the rest of the filters in the chain
         //  (it also invokes the Portlet render method if this is the last filter in the chain

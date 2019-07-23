@@ -1,11 +1,13 @@
 <%@ page import="java.util.stream.Collectors" %>
 <%@ page
-		import="com.liferay.code.samples.portal.modules.applications.portlets.render_filter.constants.MembersListPortletKeys" %>
+		import="com.liferay.code.samples.portal.modules.applications.portlets.render_filter.portlet.MembersListPortlet" %>
 <%@ page import="com.liferay.code.samples.portal.modules.applications.portlets.render_filter.model.Person" %>
 <%@ page import="java.util.List" %>
+<%@ page
+        import="com.liferay.code.samples.portal.modules.applications.portlets.render_filter.portlet.MembersListPortlet" %>
 <%@ include file="/init.jsp" %>
 
-<liferay-portlet:actionURL name="<%= MembersListPortletKeys.LOAD_USERS_ACTION %>" var="loadURL"/>
+<liferay-portlet:actionURL name="<%= MembersListPortlet.LOAD_USERS_ACTION %>" var="loadURL"/>
 
 <!-- list of users, rendered using clay components.
 In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
@@ -14,8 +16,8 @@ In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 		<h3 class="list-group-header-title"><liferay-ui:message key="memberslist.caption"/></h3>
 	</li>
 
-	<c:if test='<%= renderRequest.getAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE) != null %>'>
-		<c:forEach var="user" items="<%= renderRequest.getAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE) %>">
+	<c:if test='<%= renderRequest.getAttribute(MembersListPortlet.MEMBERLIST_ATTRIBUTE) != null %>'>
+		<c:forEach var="user" items="<%= renderRequest.getAttribute(MembersListPortlet.MEMBERLIST_ATTRIBUTE) %>">
 			<li class="list-group-item list-group-item-flex">
 				<div class="autofit-col">
 					<div class="sticker sticker-secondary">

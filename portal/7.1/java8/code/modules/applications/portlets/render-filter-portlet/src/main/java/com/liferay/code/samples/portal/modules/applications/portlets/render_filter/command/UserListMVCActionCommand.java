@@ -1,7 +1,7 @@
 package com.liferay.code.samples.portal.modules.applications.portlets.render_filter.command;
 
-import com.liferay.code.samples.portal.modules.applications.portlets.render_filter.constants.MembersListPortletKeys;
 import com.liferay.code.samples.portal.modules.applications.portlets.render_filter.model.Person;
+import com.liferay.code.samples.portal.modules.applications.portlets.render_filter.portlet.MembersListPortlet;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import org.osgi.service.component.annotations.Component;
 
@@ -22,8 +22,8 @@ import java.util.List;
 @Component(
         immediate = true,
         property = {
-                "javax.portlet.name=" + MembersListPortletKeys.MEMBERSLIST_PORTLET_NAME,
-                "mvc.command.name=" + MembersListPortletKeys.LOAD_USERS_ACTION
+                "javax.portlet.name=" + MembersListPortlet.MEMBERSLIST_PORTLET_NAME,
+                "mvc.command.name=" + MembersListPortlet.LOAD_USERS_ACTION
         },
         service = MVCActionCommand.class
 )
@@ -35,7 +35,7 @@ public class UserListMVCActionCommand implements MVCActionCommand {
 
         //Loads a hard-coded list of users
         // Usually the list of users would be retrieved using a service
-        actionRequest.setAttribute(MembersListPortletKeys.MEMBERLIST_ATTRIBUTE, loadUsers());
+        actionRequest.setAttribute(MembersListPortlet.MEMBERLIST_ATTRIBUTE, loadUsers());
 
         return false;
     }

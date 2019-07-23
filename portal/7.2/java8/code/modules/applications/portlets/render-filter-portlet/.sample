@@ -22,9 +22,6 @@ displayFiles:
   - name: Bnd configuration
     highlighting: properies 
     path: bnd.bnd
-  - name: Common Bnd configuration
-    highlighting: properies 
-    path: common.bnd
   - name: Maven POM
     highlighting: xml 
     path: pom.xml

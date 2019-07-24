@@ -9,10 +9,20 @@ gradle -version
 mvn --version'''
       }
     }
-    stage('Build') {
-      steps {
-        sh '''cd portal/7.1/java8
+    stage('Build 7.1') {
+      parallel {
+        stage('Build 7.1') {
+          steps {
+            sh '''cd portal/7.1/java8
 ./build.sh'''
+          }
+        }
+        stage('Build 7.2') {
+          steps {
+            sh '''cd portal/7.2/java8
+./build.sh'''
+          }
+        }
       }
     }
     stage('Refresh') {

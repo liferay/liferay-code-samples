@@ -1,4 +1,4 @@
-Bundle-Name: action-command-ds
+Bundle-Name: Liferay Portal Samples :: MVC Portlet + ActionCommand + DS + JSP
 Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.action_command_ds
 Bundle-Version: 1.0.0
 

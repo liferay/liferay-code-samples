@@ -3,8 +3,6 @@
 		import="com.liferay.code.samples.portal.modules.applications.portlets.render_filter.portlet.MembersListPortlet" %>
 <%@ page import="com.liferay.code.samples.portal.modules.applications.portlets.render_filter.model.Person" %>
 <%@ page import="java.util.List" %>
-<%@ page
-        import="com.liferay.code.samples.portal.modules.applications.portlets.render_filter.portlet.MembersListPortlet" %>
 <%@ include file="/init.jsp" %>
 
 <liferay-portlet:actionURL name="<%= MembersListPortlet.LOAD_USERS_ACTION %>" var="loadURL"/>
@@ -13,7 +11,7 @@
 		 In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 	<ul class="list-group show-quick-actions-on-hover">
 		<li clas="list-group-header">
-			<h3 class="list-group-header-title"><liferay-ui:message key="memberslist.caption"/></h3>
+			<h3 class="list-group-header-title"><liferay-ui:message key="render_filter_portlet.caption"/></h3>
 		</li>
 
 		<c:if test='<%= renderRequest.getAttribute(MembersListPortlet.MEMBERLIST_ATTRIBUTE) != null %>'>
@@ -40,4 +38,4 @@
 <aui:button
 		type="button" primary="true"
 		href="<%= loadURL %>"
-		value="javax.portlet.title.com_liferay_code_samples_portal_modules_applications_portlets_render_filter_MembersListPortlet.load_users"/>
+		value="render_filter_portlet.button.load_users"/>

@@ -38,4 +38,4 @@ In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 <aui:button
 		type="button" primary="true"
 		href="<%= loadURL %>"
-		value="render_filter_portlet.button.load_users.load_users"/>
+		value="render_filter_portlet.button.load_users"/>

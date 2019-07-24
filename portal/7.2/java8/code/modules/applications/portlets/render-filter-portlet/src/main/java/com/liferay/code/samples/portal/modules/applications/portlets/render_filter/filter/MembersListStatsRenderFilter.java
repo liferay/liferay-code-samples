@@ -85,7 +85,7 @@ public class MembersListStatsRenderFilter implements RenderFilter {
             long averageRenderTimeNs = accumulatedTimeMs.longValue() / totalHits;
             LOG.debug("Portlet " + MembersListPortlet.MEMBERSLIST_PORTLET_NAME + " rendered in " + renderTime + " ms");
             LOG.debug("Portlet " + MembersListPortlet.MEMBERSLIST_PORTLET_NAME + " rendered " + hits.longValue()
-                    + " with an average " + averageRenderTimeNs + " ns render time");
+                    + " times with an average " + averageRenderTimeNs + " ms render time");
         }
     }
 

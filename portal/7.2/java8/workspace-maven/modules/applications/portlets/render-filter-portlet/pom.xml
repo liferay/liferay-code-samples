@@ -5,8 +5,8 @@
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.liferay.code.samples.portal.modules.applications.portlets.render_filter</groupId>
-	<artifactId>render-filter-portlet</artifactId>
+	<groupId>com.liferay.code.samples.portal.modules.applications.portlets</groupId>
+	<artifactId>com.liferay.code.samples.portal.modules.applications.portlets.render-filter-portlet</artifactId>
 	<version>1.0.0</version>
 
 	<name> RenderFilter :: MVC Portlet + RenderFilter + JSP </name>

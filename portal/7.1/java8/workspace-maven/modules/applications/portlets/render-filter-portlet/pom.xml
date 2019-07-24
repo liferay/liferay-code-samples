@@ -8,7 +8,7 @@
 	<artifactId>com.liferay.code.samples.portal.modules.applications.portlets.render-filter-portlet</artifactId>
 	<version>1.0.0</version>
 
-	<name> RenderFilter :: MVC Portlet + RenderFilter + JSP </name>
+	<name> Portlet :: RenderFilter </name>
 
 	<parent>
 		<artifactId>modules.applications.portlets</artifactId>

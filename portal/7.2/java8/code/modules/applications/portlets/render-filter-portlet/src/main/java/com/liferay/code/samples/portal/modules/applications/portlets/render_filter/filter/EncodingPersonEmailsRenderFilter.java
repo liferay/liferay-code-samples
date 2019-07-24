@@ -33,12 +33,22 @@ import java.util.stream.Collectors;
 @Component(
         immediate = true,
         property = {
-                "javax.portlet.name=" + MembersListPortlet.MEMBERSLIST_PORTLET_NAME,
-                "service.ranking:Integer=1"
+                "javax.portlet.name=" + MembersListPortlet.MEMBERSLIST_PORTLET_NAME, //Links Filter to  portlet by name
+                "service.ranking:Integer=1"  //Specifies filter order in FilterChain. Highest number means higher preference
         },
         service = PortletFilter.class
 )
 public class EncodingPersonEmailsRenderFilter implements RenderFilter {
+
+    /**
+     * Implementation of filter method. This is where the filter can intercept the Request or adapt data both in the
+     * request and in the response.
+     *
+     * Your code need to invoke the chain.doFilter() method to continue request processing (either by invoking the next
+     * fitler in the chain or, if this fitler is the last one in the chain, invoking to the target phase in the portlet).
+     *
+     * You can also stop (intercept) the processing of the request by throwing a PortletException
+     */
     @Override
     public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain)
             throws IOException, PortletException {

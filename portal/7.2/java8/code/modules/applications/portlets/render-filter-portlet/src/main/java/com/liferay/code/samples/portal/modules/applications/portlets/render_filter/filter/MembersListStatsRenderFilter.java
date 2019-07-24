@@ -53,6 +53,15 @@ public class MembersListStatsRenderFilter implements RenderFilter {
     //Thread safe accumulator that keeps total time spent rendering the portlet.
     private final LongAdder accumulatedTimeMs = new LongAdder();
 
+    /**
+     * Implementation of filter method. This is where the filter can intercept the Request or adapt data both in the
+     * request and in the response.
+     *
+     * Your code need to invoke the chain.doFilter() method to continue request processing (either by invoking the next
+     * fitler in the chain or, if this fitler is the last one in the chain, invoking to the target phase in the portlet).
+     *
+     * You can also stop (intercept) the processing of the request by throwing a PortletException
+     */
     @Override
     public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain) throws IOException, PortletException {
 
@@ -71,20 +80,28 @@ public class MembersListStatsRenderFilter implements RenderFilter {
         hits.increment();
         accumulatedTimeMs.add(renderTime);
 
-        if (LOG.isInfoEnabled()) {
+        if (LOG.isDebugEnabled()) {
             long totalHits = hits.longValue();
             long averageRenderTimeNs = accumulatedTimeMs.longValue() / totalHits;
-            LOG.info("Portlet " + MembersListPortlet.MEMBERSLIST_PORTLET_NAME + " rendered in " + renderTime + " ms");
-            LOG.info("Portlet " + MembersListPortlet.MEMBERSLIST_PORTLET_NAME + " rendered " + hits.longValue()
+            LOG.debug("Portlet " + MembersListPortlet.MEMBERSLIST_PORTLET_NAME + " rendered in " + renderTime + " ms");
+            LOG.debug("Portlet " + MembersListPortlet.MEMBERSLIST_PORTLET_NAME + " rendered " + hits.longValue()
                     + " with an average " + averageRenderTimeNs + " ns render time");
         }
     }
 
+    /**
+     * Method executed when the filter is instantiated and added to the Filter chain. The FilterConfig contain any init
+     * param or initial configuration for the filter
+     */
     @Override
     public void init(FilterConfig filterConfig) throws PortletException {
 
     }
 
+    /**
+     * Method invoked before the destruction of the filter and its removal from the FilterChain. Usually this method
+     * includes any clean-up code required by the filter.
+     */
     @Override
     public void destroy() {
 

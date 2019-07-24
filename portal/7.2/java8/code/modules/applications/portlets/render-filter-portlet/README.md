@@ -9,6 +9,7 @@ It consists of:
 - one portlet serving as MVC controller
 - a `EncodingPersonEmailsRenderFilter` filter, which obfuscates some data (in this case the emails) before it is rendered to the client
 - a second filter, `MemberListStatsRenderFilter`, which measures the time that takes to render the portlet (this illustrates how to add code before and after the execution of the portlet).
+- a model class that represents a `Person` by its name and email address
 - JSP page for the view allowing to call the respective command based on the session value     
 
 For more information please see the documentation for:

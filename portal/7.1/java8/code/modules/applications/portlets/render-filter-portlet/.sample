@@ -16,9 +16,6 @@ displayFiles:
   - name: Person class
     highlighting: java 
     path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/render_filter/model/Person.java
-  - name: UserListMVCActionCommand class
-    highlighting: java 
-    path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/render_filter/command/UserListMVCActionCommand.java
   - name: Bnd configuration
     highlighting: properies 
     path: bnd.bnd

@@ -9,7 +9,7 @@ gradle -version
 mvn --version'''
       }
     }
-    stage('Build 7.1') {
+    stage('Build') {
       parallel {
         stage('Build 7.1') {
           steps {

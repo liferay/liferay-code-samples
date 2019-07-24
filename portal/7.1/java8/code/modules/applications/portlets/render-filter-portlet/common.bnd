@@ -1,0 +1,6 @@
+Bundle-Name: Liferay Portal Samples :: Portlet Render Filter
+Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.render_filter
+Bundle-Version: 1.0.0
+
+# Include source code in the bundle
+-sources: true

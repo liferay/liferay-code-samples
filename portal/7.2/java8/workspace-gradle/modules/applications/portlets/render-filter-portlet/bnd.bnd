@@ -1,0 +1,5 @@
+# Use the common Bnd instructions such as bundle name and version
+-include: ./common.bnd
+
+# Since we are using Liferay's gradle workspace, the following is automatically taken care of 
+#   - Instruct Bnd to use portalble contracts instead of package dependencies, when possible

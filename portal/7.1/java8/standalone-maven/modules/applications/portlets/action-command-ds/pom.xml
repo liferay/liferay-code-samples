@@ -27,13 +27,13 @@
     </dependencyManagement>
 
 	<dependencies>
+		<!-- Liferay's portlet MVC framework -->
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.portal.kernel</artifactId>
 		</dependency>
 
 		<dependency>
-			<!-- Liferay's portlet MVC framework -->
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.util.taglib</artifactId>
 		</dependency>

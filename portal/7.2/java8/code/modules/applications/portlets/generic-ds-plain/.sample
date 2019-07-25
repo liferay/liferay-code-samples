@@ -4,7 +4,7 @@ displayFiles:
   - name: Documentation
     highlighting: markdown 
     path: README.md
-  - name: Portlet class
+  - name: Portlet
     highlighting: java 
     path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/generic_ds_plain/DSPortlet.java
   - name: Bnd configuration

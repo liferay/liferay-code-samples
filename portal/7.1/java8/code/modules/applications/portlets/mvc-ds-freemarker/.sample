@@ -1,17 +1,11 @@
-name: "MVC Portlet with DS and Freemarker"
+name: "MVC Portlet with DS and FreeMarker"
 description: |
-  Demonstrates how to
-    <ul> 
-      <li> build a portlet with Liferay MVC framework </li>
-      <li> use DS (Declarative Services) framework to register it </li>
-      <li> use Freemarker templates for the view </li>
-      <li> use language resource bundles </li>
-    </ul>
+  Demonstrates how to use `FreeMarker` instead of `JSP` as view layer framework.
 displayFiles:
   - name: Documentation 
     highlighting: markdown 
     path: README.md
-  - name: Portlet class
+  - name: Portlet
     highlighting: java 
     path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/mvc_ds_freemarker/BlankFreemarkerPortlet.java
   - name: Freemarker init template

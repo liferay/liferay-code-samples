@@ -56,5 +56,5 @@ There is no configuration needed. Use the applications menu to add the sample to
 
 ## Related documentation
 
+- [RenderFilter Javadoc](https://portals.apache.org/pluto/portlet-2.0-apidocs/javax/portlet/filter/RenderFilter.html)
 - [Liferay MVC Portlet](https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/liferay-mvc-portlet)
-- [Using Filters to intercept, adapt or modify data around Portlet execution tutorial](/docs/7-2/tutorials/-/knowledge_base/t/render_filter_portlet)

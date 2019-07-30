@@ -15,19 +15,27 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<dependencyManagement>
+        <dependencies>
+			<dependency>
+				<groupId>com.liferay.portal</groupId>
+				<artifactId>release.portal.bom</artifactId>
+				<version>7.2.0</version>
+				<type>pom</type>
+                <scope>import</scope>
+			</dependency>
+        </dependencies>
+    </dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<!-- Liferay's portlet MVC framework -->
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.portal.kernel</artifactId>
-			<version>4.4.0</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.util.taglib</artifactId>
-			<version>4.0.8</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<!-- Portlet API -->

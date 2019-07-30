@@ -1,0 +1,6 @@
+Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.mvc-ds-freemarker
+Bundle-Name: Liferay Portal Samples :: MVC Portlet + DS wireing + Freemarker view
+Bundle-Version: 1.0.0
+
+# Include source code in the bundle
+-sources: true

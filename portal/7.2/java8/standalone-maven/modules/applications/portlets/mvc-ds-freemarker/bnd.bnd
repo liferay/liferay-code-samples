@@ -1,0 +1,10 @@
+# Use the common Bnd instructions such as bundle name and version
+-include: ./common.bnd
+
+# Instruct Bnd to use portalble contracts instead of package dependencies, when possible
+-contract: JavaPortlet
+
+# Add a plugin to analyze i18n resource bundles
+-plugin.bundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+
+

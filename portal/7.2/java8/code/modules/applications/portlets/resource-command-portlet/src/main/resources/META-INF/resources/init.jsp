@@ -10,3 +10,7 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <liferay-theme:defineObjects />
 
 <portlet:defineObjects />
+
+<%
+    String iconsPath = themeDisplay.getPathThemeImages() + "/lexicon/icons.svg";
+%>

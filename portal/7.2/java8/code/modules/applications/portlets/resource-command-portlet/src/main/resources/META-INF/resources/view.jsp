@@ -12,7 +12,7 @@ In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 
 	<c:if test='<%= request.getAttribute(ResourceCommandPortlet.TASK_LIST_ATTRIBUTE) != null %>'>
 
-		<h4 class="list-group-header-title"><liferay-ui:message key="render_filter_portlet.members.title"/></h4>
+		<h4 class="list-group-header-title"><liferay-ui:message key="resource_command.tasks.title"/></h4>
 
 		<c:forEach var="task" items="<%= request.getAttribute(ResourceCommandPortlet.TASK_LIST_ATTRIBUTE) %>" varStatus="status">
 			<li class="list-group-item list-group-item-flex">
@@ -30,7 +30,8 @@ In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 					</c:choose>
 					<div class="sticker sticker-secondary">
 						<span class="inline-item">
-							<svg class='lexicon-icon lexicon-icon-<c:out value="${priorityicon}"/>' focusable="false" role="presentation" aria-details='priority-<c:out value="${status.index}"/>'>
+							<svg class='lexicon-icon lexicon-icon-<c:out value="${priorityicon}"/>' focusable="false"
+								 role="presentation" aria-details='priority-<c:out value="${status.index}"/>'>
 								<use xlink:href="<%=iconsPath %>#<c:out value="${priorityicon}"/>" />
 							</svg>
 						</span>
@@ -49,6 +50,18 @@ In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 				</div>
 			</li>
 		</c:forEach>
+
+
+		<aui:button-row>
+
+			<portlet:resourceURL id="/download/tasklist" var="downloadTasklistURL"/>
+
+			<aui:button onClick="<%=downloadTasklistURL.toString()%>" value="Export as XLS "></aui:button>
+
+		</aui:button-row>
+
 	</c:if>
+
+
 </ul>
 

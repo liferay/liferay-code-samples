@@ -2,13 +2,16 @@
  * Project dependencies
  */
 dependencies {
-	compileOnly "com.liferay.portal:com.liferay.portal.kernel"	// version will be taken from BOM 
+	compileInclude "org.apache.poi:poi-ooxml:4.1.0"
+	compileOnly "com.liferay.portal:com.liferay.portal.kernel"	// version will be taken from BOM
 	compileOnly "com.liferay.portal:com.liferay.util.taglib" 	// version will be taken from BOM
 	compileOnly "com.liferay:com.liferay.portal.aop.api"
 	compileOnly "javax.portlet:portlet-api:3.0.0"
 	compileOnly "javax.servlet:javax.servlet-api:3.0.1"
 	compileOnly "jstl:jstl:1.2"
 	compileOnly "org.osgi:org.osgi.service.component.annotations:1.3.0"
+	compileOnly 'org.apache.poi:poi:4.1.0'
+	compileOnly 'org.apache.poi:poi:4.1.0'
 }
 
 /*

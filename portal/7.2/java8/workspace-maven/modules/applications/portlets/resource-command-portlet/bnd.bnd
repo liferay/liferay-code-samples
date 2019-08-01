@@ -1,6 +1,19 @@
 # Use the common Bnd instructions such as bundle name and version
 -include: ./common.bnd
 
+# We need to include the poi-ooxml and its transitive dependencies in the module
+# See Option 4 of (https://liferay.dev/blogs/-/blogs/osgi-module-dependencies)
+-includeresource:\
+ @commons-codec-1.12.jar,\
+ @commons-collections4-4.3.jar,\
+ @commons-compress-1.18.jar,\
+ @commons-math3-3.6.1.jar,\
+ @curvesapi-1.06.jar,\
+ @poi-4.1.0.jar,\
+ @poi-ooxml-4.1.0.jar,\
+ @poi-ooxml-schemas-4.1.0.jar,\
+ @xmlbeans-3.1.0.jar
+
 # Instruct Bnd to use portalble contracts instead of package dependencies, when possible
 -contract: JavaPortlet,JavaServlet
 
@@ -15,6 +28,3 @@
 # Add a plugin to analyze SASS/CSS files
 -plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
 -sass: *
-
-# Include source code in the bundle
--sources: true

@@ -55,6 +55,7 @@ dependencyManagement {
  * Project dependencies
  */
 dependencies {
+	compileInclude "org.apache.poi:poi-ooxml:4.1.0"
 	compileOnly  "com.liferay.portal:com.liferay.portal.kernel" 	// version will be taken from BOM (4.13.0 was 4.4.0)
 	compileOnly  "com.liferay.portal:com.liferay.util.taglib"		// version will be taken from BOM (4.1.0 was 4.0.8)
 	compileOnly  "javax.portlet:portlet-api:3.0.0"

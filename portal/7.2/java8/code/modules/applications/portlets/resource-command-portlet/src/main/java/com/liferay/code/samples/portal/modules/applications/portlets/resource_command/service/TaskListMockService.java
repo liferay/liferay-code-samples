@@ -3,7 +3,6 @@ package com.liferay.code.samples.portal.modules.applications.portlets.resource_c
 
 import com.liferay.code.samples.portal.modules.applications.portlets.resource_command.model.PersonalTask;
 import com.liferay.code.samples.portal.modules.applications.portlets.resource_command.model.PersonalTask.Priority;
-import com.liferay.portal.aop.AopService;
 import org.osgi.service.component.annotations.Component;
 
 import java.time.LocalDate;
@@ -15,7 +14,7 @@ import static java.time.DayOfWeek.*;
 
 @Component(
         property = "model.class.name=com.liferay.code.samples.portal.modules.applications.portlets.resource_command.model.PersonalTask",
-        service= TaskListService.class
+        service = TaskListService.class
 )
 public class TaskListMockService implements TaskListService {
 

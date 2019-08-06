@@ -10,6 +10,9 @@ import org.osgi.service.component.annotations.Reference;
 
 import java.io.IOException;
 
+/**
+ * Simple portlet that renders a list of Personal Tasks
+ */
 @Component(
 	immediate = true,
 	property = {
@@ -19,13 +22,13 @@ import java.io.IOException;
 		"javax.portlet.display-name=ResourceCommand",
 		"javax.portlet.init-param.template-path=/",
 		"javax.portlet.init-param.view-template=/view.jsp",
-		"javax.portlet.name=" + ResourceCommandPortlet.RESOURCE_COMMAND_PORTLET_NAME,
+		"javax.portlet.name=" + TaskListPortlet.RESOURCE_COMMAND_PORTLET_NAME,
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user"
 	},
 	service = Portlet.class
 )
-public class ResourceCommandPortlet extends MVCPortlet {
+public class TaskListPortlet extends MVCPortlet {
 	public static final String RESOURCE_COMMAND_PORTLET_NAME = "mvc_resource_command_portlet";
 	public static final String LOAD_TASK_LIST_ACTION = "loadPersonalTasks";
 	public static final String TASK_LIST_ATTRIBUTE = "personal_task_list";

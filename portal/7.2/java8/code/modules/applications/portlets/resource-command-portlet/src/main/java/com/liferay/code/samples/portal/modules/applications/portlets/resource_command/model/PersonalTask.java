@@ -2,8 +2,10 @@ package com.liferay.code.samples.portal.modules.applications.portlets.resource_c
 
 import java.time.LocalDate;
 
+/**
+ * Simple class to represent a PersonalTask, identified by a title, a due date and a priority.
+ */
 public class PersonalTask {
-
 
     public PersonalTask(String title) {
         this.createdAt = LocalDate.now();

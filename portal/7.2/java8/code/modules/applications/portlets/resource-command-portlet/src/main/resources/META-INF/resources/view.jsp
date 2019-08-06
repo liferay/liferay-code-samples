@@ -1,20 +1,20 @@
 <%@ page
-		import="com.liferay.code.samples.portal.modules.applications.portlets.resource_command.portlet.ResourceCommandPortlet" %><%@ page
+		import="com.liferay.code.samples.portal.modules.applications.portlets.resource_command.portlet.TaskListPortlet" %><%@ page
 		import="com.liferay.code.samples.portal.modules.applications.portlets.resource_command.model.PersonalTask" %>
 <%@ include file="/init.jsp" %>
 
-<h3><liferay-ui:message key="resource_command.caption"/></h3>
+<h3><liferay-ui:message key="task-list-portlet.caption"/></h3>
 
 
 <!-- list of task, rendered using clay components.
 In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 <ul class="list-group show-quick-actions-on-hover">
 
-	<c:if test='<%= request.getAttribute(ResourceCommandPortlet.TASK_LIST_ATTRIBUTE) != null %>'>
+	<c:if test='<%= request.getAttribute(TaskListPortlet.TASK_LIST_ATTRIBUTE) != null %>'>
 
-		<h4 class="list-group-header-title"><liferay-ui:message key="resource_command.tasks.title"/></h4>
+		<h4 class="list-group-header-title"><liferay-ui:message key="task-list-portlet.title"/></h4>
 
-		<c:forEach var="task" items="<%= request.getAttribute(ResourceCommandPortlet.TASK_LIST_ATTRIBUTE) %>" varStatus="status">
+		<c:forEach var="task" items="<%= request.getAttribute(TaskListPortlet.TASK_LIST_ATTRIBUTE) %>" varStatus="status">
 			<li class="list-group-item list-group-item-flex">
 				<div class="autofit-col">
 					<c:choose>
@@ -54,9 +54,10 @@ In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 
 		<aui:button-row>
 
+			<%-- Define the URL that is mapped to the Resource as defined in the `MVCResourceCommand` --%>
 			<portlet:resourceURL id="/download/tasklist" var="downloadTasklistURL"/>
 
-			<aui:button onClick="<%=downloadTasklistURL.toString()%>" value="Export as XLS "></aui:button>
+			<aui:button onClick="<%=downloadTasklistURL.toString()%>" value="task-list-portlet.button.export-as-xls"/>
 
 		</aui:button-row>
 

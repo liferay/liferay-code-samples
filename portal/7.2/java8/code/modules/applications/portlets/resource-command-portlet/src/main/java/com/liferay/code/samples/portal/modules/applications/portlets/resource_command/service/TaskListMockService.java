@@ -27,12 +27,13 @@ public class TaskListMockService implements TaskListService {
         LocalDate endOfMonth = today.with(TemporalAdjusters.lastDayOfMonth());
 
         return Arrays.asList(
-                new PersonalTask("Read new Liferay tutorials", Priority.MEDIUM, today),
+                new PersonalTask("Review new Liferay tutorials", Priority.MEDIUM, today),
                 new PersonalTask("Write a Community Blog post", Priority.MEDIUM, thisWeek),
                 new PersonalTask("Weekly team sync", Priority.HIGH, today.with(TemporalAdjusters.next(WEDNESDAY))),
                 new PersonalTask("Send monthly report", Priority.MEDIUM, endOfMonth),
                 new PersonalTask("Contribute a code sample to Liferay's docs", Priority.HIGH, endOfWorkingWeek),
-                new PersonalTask("Attend the local LSUG meet up", Priority.MEDIUM, tomorrow)
+                new PersonalTask("Attend the local LSUG meet up", Priority.MEDIUM, tomorrow),
+                new PersonalTask("Improve code comments in old samples", Priority.LOW, endOfMonth)
         );
     }
 

@@ -1,7 +1,7 @@
 package com.liferay.code.samples.portal.modules.applications.portlets.resource_command.command;
 
 import com.liferay.code.samples.portal.modules.applications.portlets.resource_command.model.PersonalTask;
-import com.liferay.code.samples.portal.modules.applications.portlets.resource_command.portlet.ResourceCommandPortlet;
+import com.liferay.code.samples.portal.modules.applications.portlets.resource_command.portlet.TaskListPortlet;
 import com.liferay.code.samples.portal.modules.applications.portlets.resource_command.service.TaskListService;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -20,22 +20,37 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 
+/**
+ * This class handles the export of the data as an XLS file.
+ *
+ * The <code>MVCResourceCommand</code> forces to implement the <code>serveResource</code> method which can encode the binary
+ * response into the <code>ResourceResponse</code> provided as parameter.
+ *
+ * The ResourceCommand is attached to the portlet that can invoke the resource by the <code>javax.portlet.name</code>
+ * property on the header, and using <code>mvc.command.name</code> it's given a name that can be used from the view layer
+ *
+ */
 @Component(
         immediate = true,
         property = {
-                "javax.portlet.name=" + ResourceCommandPortlet.RESOURCE_COMMAND_PORTLET_NAME,
+                //The name of the portlet the command is attached to
+                "javax.portlet.name=" + TaskListPortlet.RESOURCE_COMMAND_PORTLET_NAME,
+                //The Command name (used in the view layer)
                 "mvc.command.name=/download/tasklist"
         },
         service = MVCResourceCommand.class
 )
-public class TaskListFileMVCResourceCommand implements MVCResourceCommand {
+public class XLSTaskListResourceCommand implements MVCResourceCommand {
 
-
+    /**
+     * Method that will generate and encode the binary resource into the <code>ResourceResponse</code>
+     */
     @Override
     public boolean serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
             throws  PortletException {
         Collection<PersonalTask> personalTasks = taskListService.loadPersonalTasks();
 
+        //Use Apache POI to create an XLS file and fill its contents
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook();
         XSSFSheet sheet = xssfWorkbook.createSheet();
 
@@ -43,6 +58,7 @@ public class TaskListFileMVCResourceCommand implements MVCResourceCommand {
         personalTasks.forEach(personalTask -> writeRow(sheet, personalTask));
 
         try {
+            //Encode the file (binary resource) into the response
             encodeWorkbookIntoResponse(resourceRequest, resourceResponse, xssfWorkbook);
         } catch (IOException ioEx) {
             LOGGER.error(ioEx);
@@ -50,7 +66,6 @@ public class TaskListFileMVCResourceCommand implements MVCResourceCommand {
         }
         return true;
     }
-
 
     private void encodeWorkbookIntoResponse(ResourceRequest resourceRequest,
                                             ResourceResponse resourceResponse,
@@ -61,7 +76,7 @@ public class TaskListFileMVCResourceCommand implements MVCResourceCommand {
         xssfWorkbook.close();
         baos.flush();
         PortletResponseUtil.sendFile(resourceRequest, resourceResponse,
-                FILE_NAME, baos.toByteArray(), ContentTypes.APPLICATION_VND_MS_EXCEL);
+                XLS_FILE_NAME, baos.toByteArray(), ContentTypes.APPLICATION_VND_MS_EXCEL);
     }
 
     private XSSFRow writeRow(XSSFSheet sheet, PersonalTask personalTask) {
@@ -79,11 +94,11 @@ public class TaskListFileMVCResourceCommand implements MVCResourceCommand {
         return row;
     }
 
-
     @Reference
     private TaskListService taskListService;
 
-    private static Log LOGGER = LogFactoryUtil.getLog(TaskListFileMVCResourceCommand.class);
-    private static final String FILE_NAME = "tasklist.xls";
+    private static Log LOGGER = LogFactoryUtil.getLog(XLSTaskListResourceCommand.class);
+
+    private static final String XLS_FILE_NAME = "tasklist.xls";
 
 }

@@ -6,11 +6,11 @@ This simple application demonstrates the use of a `ResourceCommand` to handle th
 
 ## What it does
 
-The main `ResourceCommandPortlet` simply shows a list of `PersonalTask`s to be done, consisting of a priority, a due date
+The main `TaskListPortlet` simply shows a list of `PersonalTask`s to be done, consisting of a priority, a due date
 and a title for the task. The list of tasks are retrieved from a `TaskListMockService` which simply returns a hard coded
 list of tasks (in a real case scenario this would probably be a service that retrieves the tasks from DB).
 
-There is a `TaskListFileMVCResourceCommand` that uses the same service to generate a xls file with the task lists and 
+There is a `XLSTaskListMVCResourceCommand` that uses the same service to generate a xls file with the task lists and 
 return it as a binary file. 
 
 Both the service and the `MVCResourceCommand` are registered as OSGi services and attached to the `MVCPortlet` using declarative services.
@@ -22,7 +22,6 @@ use and include external libraries in your application.
 ## Other frameworks and libraries used in this sample
 
 - `MVC Portlet` - for the portlet _(it would work the same with any other portlet framework)_
-- `MVCResourceCommand` - to implement the handling of Resources and binary responses.
 - `OSGi Declrative Services` - to register portlet filters as OSGi components
 - `JSP` - to build the view layer
 - `Apache POI` - to generate Office and OpenDocument files (as the Spreadsheet or .xls files)

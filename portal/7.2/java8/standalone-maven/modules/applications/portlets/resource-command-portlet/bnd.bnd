@@ -14,17 +14,6 @@
  lib/commons-math3-3.6.1.jar=commons-math3-3.6.1.jar;lib:=true,\
  lib/xmlbeans-3.1.0.jar=xmlbeans-3.1.0.jar;lib:=true
 
-#Bundle-ClassPath:.,\
-# lib/poi-ooxml-4.1.0.jar,\
-# lib/poi-4.1.0.jar,\
-# lib/poi-ooxml-schemas-4.1.0.jar,\
-# lib/commons-compress-1.18.jar,\
-# lib/curvesapi-1.06.jar,\
-# lib/commons-codec-1.12.jar,\
-# lib/commons-collections4-4.3.jar,\
-# lib/commons-math3-3.6.1.jar,\
-# lib/xmlbeans-3.1.0.jar
-
 # Instruct Bnd to use portalble contracts instead of package dependencies, when possible
 -contract: JavaPortlet,JavaServlet
 

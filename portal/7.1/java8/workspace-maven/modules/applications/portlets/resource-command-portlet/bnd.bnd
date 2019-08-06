@@ -1,0 +1,30 @@
+# Use the common Bnd instructions such as bundle name and version
+-include: ./common.bnd
+
+# We need to include the poi-ooxml and its transitive dependencies in the module
+# See https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/adding-third-party-libraries-to-a-module#embedding-libraries-in-a-module
+-includeresource:\
+ lib/poi-ooxml-4.1.0.jar=poi-ooxml-4.1.0.jar;lib:=true,\
+ lib/poi-4.1.0.jar=poi-4.1.0.jar;lib:=true,\
+ lib/poi-ooxml-schemas-4.1.0.jar=poi-ooxml-schemas-4.1.0.jar;lib:=true,\
+ lib/commons-compress-1.18.jar=commons-compress-1.18.jar;lib:=true,\
+ lib/curvesapi-1.06.jar=curvesapi-1.06.jar;lib:=true,\
+ lib/commons-codec-1.12.jar=commons-codec-1.12.jar;lib:=true,\
+ lib/commons-collections4-4.3.jar=commons-collections4-4.3.jar;lib:=true,\
+ lib/commons-math3-3.6.1.jar=commons-math3-3.6.1.jar;lib:=true,\
+ lib/xmlbeans-3.1.0.jar=xmlbeans-3.1.0.jar;lib:=true
+
+# Instruct Bnd to use portalble contracts instead of package dependencies, when possible
+-contract: JavaPortlet,JavaServlet
+
+# Add a plugin to analyze the JSPs
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+# Tell the JSP plugin where to find JSP files
+-jsp: *.jsp,*.jspf
+
+# Add a plugin to analyze i18n resource bundles
+-plugin.bundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+
+# Add a plugin to analyze SASS/CSS files
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *

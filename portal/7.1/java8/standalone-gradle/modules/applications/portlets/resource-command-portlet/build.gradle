@@ -19,10 +19,8 @@ apply plugin: "io.spring.dependency-management"
  */
 buildscript {
 	dependencies {
-		//classpath "com.liferay:com.liferay.gradle.plugins:4.0.23"
 		classpath "com.liferay:com.liferay.gradle.plugins:3.13.156"
 		classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
-
 	}
 
 	repositories {

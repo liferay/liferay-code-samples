@@ -80,7 +80,6 @@
 		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.resource-command-portlet</finalName>
 
 		<plugins>
-
 			<!-- 
 				Compile for Java 8
 			-->

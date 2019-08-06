@@ -35,6 +35,7 @@
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.portal.kernel</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.util.taglib</artifactId>
@@ -83,7 +84,6 @@
 		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.resource-command-portlet</finalName>
 
 		<plugins>
-
 			<!-- 
 				Compile for Java 8
 			-->

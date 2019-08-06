@@ -7,8 +7,10 @@
 >
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.liferay.code.samples.portal.modules.application.portlets.resource_command</groupId>
-	<artifactId>resource-command-portlet</artifactId>
+	<artifactId>com.liferay.code.samples.portal.modules.applications.portlets.resource-command-portlet</artifactId>
 	<version>1.0.0</version>
+
+	<name> Portlet :: MVC + ResourceCommand + DS </name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -28,7 +28,7 @@ task check {
                     it.name == replicationFile.name
                 }
 
-                String exclusions = "*pom.properties, *pom.xml, Archiver-Version, Built-By, Build-Jdk, Javac-Debug, Javac-Deprecation, Javac-Encoding"
+                String exclusions = "*pom.properties, *pom.xml, lib/*.jar, Archiver-Version, Built-By, Build-Jdk, Javac-Debug, Javac-Deprecation, Javac-Encoding"
 
                 def os = new ByteArrayOutputStream()
 

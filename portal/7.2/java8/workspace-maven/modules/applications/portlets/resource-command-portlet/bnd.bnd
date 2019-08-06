@@ -2,17 +2,17 @@
 -include: ./common.bnd
 
 # We need to include the poi-ooxml and its transitive dependencies in the module
-# See Option 4 of (https://liferay.dev/blogs/-/blogs/osgi-module-dependencies)
+# See https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/adding-third-party-libraries-to-a-module#embedding-libraries-in-a-module
 -includeresource:\
- @commons-codec-1.12.jar,\
- @commons-collections4-4.3.jar,\
- @commons-compress-1.18.jar,\
- @commons-math3-3.6.1.jar,\
- @curvesapi-1.06.jar,\
- @poi-4.1.0.jar,\
- @poi-ooxml-4.1.0.jar,\
- @poi-ooxml-schemas-4.1.0.jar,\
- @xmlbeans-3.1.0.jar
+ lib/poi-ooxml-4.1.0.jar=poi-ooxml-4.1.0.jar;lib:=true,\
+ lib/poi-4.1.0.jar=poi-4.1.0.jar;lib:=true,\
+ lib/poi-ooxml-schemas-4.1.0.jar=poi-ooxml-schemas-4.1.0.jar;lib:=true,\
+ lib/commons-compress-1.18.jar=commons-compress-1.18.jar;lib:=true,\
+ lib/curvesapi-1.06.jar=curvesapi-1.06.jar;lib:=true,\
+ lib/commons-codec-1.12.jar=commons-codec-1.12.jar;lib:=true,\
+ lib/commons-collections4-4.3.jar=commons-collections4-4.3.jar;lib:=true,\
+ lib/commons-math3-3.6.1.jar=commons-math3-3.6.1.jar;lib:=true,\
+ lib/xmlbeans-3.1.0.jar=xmlbeans-3.1.0.jar;lib:=true
 
 # Instruct Bnd to use portalble contracts instead of package dependencies, when possible
 -contract: JavaPortlet,JavaServlet

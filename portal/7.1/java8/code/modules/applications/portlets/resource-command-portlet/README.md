@@ -6,18 +6,15 @@ This simple application demonstrates the use of a `ResourceCommand` to handle th
 
 ## What it does
 
-The main `TaskListPortlet` simply shows a list of `PersonalTask`s to be done, consisting of a priority, a due date
-and a title for the task. The list of tasks are retrieved from a `TaskListMockService` which simply returns a hard coded
-list of tasks (in a real case scenario this would probably be a service that retrieves the tasks from DB).
+The main `TaskListPortlet` simply shows a list of `PersonalTask`s to be done, consisting of a priority, a due date and a title for the task. The list of tasks are retrieved from a `TaskListMockService` which simply returns a hard coded list of tasks (in a real case scenario this would probably be a service that retrieves the tasks from DB).
 
-There is a `XLSTaskListMVCResourceCommand` that uses the same service to generate a xls file with the task lists and 
-return it as a binary file. 
+There is a `XLSTaskListMVCResourceCommand` that uses the same service to generate a xls file with the task lists and return it as a binary file. 
 
 Both the service and the `MVCResourceCommand` are registered as OSGi services and attached to the `MVCPortlet` using declarative services.
+
 The view layer (implemented in `view.jsp`) shows how to add a button and link to the resourceCommand invocation.
 
-As the example uses Apache POI library (`poi-ooxml`) to generate the `.xls` file, this example also showcases how to 
-use and include external libraries in your application.
+As the example uses Apache POI library (`poi-ooxml`) to generate the `.xls` file, this example also showcases how to use and include external libraries in your application.
 
 ## Other frameworks and libraries used in this sample
 

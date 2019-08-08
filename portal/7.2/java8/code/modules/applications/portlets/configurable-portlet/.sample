@@ -1,0 +1,24 @@
+name: "Configuration action for Portlet"
+description: Demonstrates to use a Resource Command to handle resources or binary responses. In this example, the ResourceCommand is used to export the information presented in the view as an XLS file. See README.md for detailed info.
+displayFiles:
+  - name: Documentation
+    highlighting: markdown 
+    path: README.md
+  - name: Portlet
+    highlighting: java 
+    path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/resource_command/portlet/TaskListPortlet.java
+  - name: Export as XLS ResourceCommand
+    highlighting: java 
+    path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/resource_command/command/XLSTaskListResourceCommand.java
+  - name: The JSP view
+    highlighting: java 
+    path: src/main/resources/META-INF/resources/view.jsp
+  - name: Bnd configuration
+    highlighting: properies 
+    path: bnd.bnd
+  - name: Maven POM
+    highlighting: xml 
+    path: pom.xml
+  - name: Gradle build
+    highlighting: groovy 
+    path: build.gradle

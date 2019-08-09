@@ -1,6 +1,11 @@
 package com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.portlet;
 
+import com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.configuration.PersonalTaskPortletConfiguration;
 import com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.service.TaskListService;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.module.configuration.ConfigurationException;
+import com.liferay.portal.kernel.module.configuration.ConfigurationProvider;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
 import javax.portlet.*;
@@ -31,12 +36,33 @@ import java.io.IOException;
 public class TaskListPortlet extends MVCPortlet {
 	public static final String RESOURCE_COMMAND_PORTLET_NAME = "configurable_tasklist_mvc_portlet";
 	public static final String TASK_LIST_ATTRIBUTE = "personal_task_list";
+	public static final String DATE_FORMAT_PATTERN_ATTRIBUTTE = "personalTaskDateFormat";
 
 	public void render(RenderRequest request, RenderResponse response) throws IOException, PortletException {
+
+		try {
+			PersonalTaskPortletConfiguration config = configurationProvider.getSystemConfiguration(PersonalTaskPortletConfiguration.class);
+			request.setAttribute(DATE_FORMAT_PATTERN_ATTRIBUTTE, config.dateFormat());
+			LOGGER.debug("Setting " + config.dateFormat() + " as date format pattern");
+		} catch (ConfigurationException ex) {
+			LOGGER.warn("Error reading configuration for TaskListPortlet. Using default configuration. Error : " + ex.getMessage());
+			request.setAttribute(DATE_FORMAT_PATTERN_ATTRIBUTTE, PersonalTaskPortletConfiguration.DEFAULT_DATE_FORMAT);
+		}
+
+
 		request.setAttribute(TASK_LIST_ATTRIBUTE, taskListService.loadPersonalTasks());
 		super.render(request, response);
 	}
 
 	@Reference
+	public void setConfigurationProvider(ConfigurationProvider configurationProvider) {
+		this.configurationProvider = configurationProvider;
+	}
+
+	private ConfigurationProvider configurationProvider;
+
+	@Reference
 	private TaskListService taskListService;
+
+	private static final Log LOGGER = LogFactoryUtil.getLog(TaskListPortlet.class);
 }

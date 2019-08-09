@@ -36,6 +36,7 @@ public class TaskListMockService implements TaskListService {
                 new PersonalTask("Attend the local LSUG meet up", Priority.MEDIUM, tomorrow),
                 new PersonalTask("Improve code comments in old samples", Priority.LOW, endOfMonth)
         );
+
     }
 
 }

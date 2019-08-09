@@ -4,6 +4,12 @@
 dependencies {
 	compileOnly "com.liferay.portal:com.liferay.portal.kernel"	// version will be taken from BOM
 	compileOnly "com.liferay.portal:com.liferay.util.taglib" 	// version will be taken from BOM
+	// Required to allow personalization of section in which the configuration form is included within Control Panel
+	compileOnly "com.liferay:com.liferay.portal.configuration.metatype.api" // version will be taken from BOM
+	// Required to create new Configuration Categories
+	compileOnly "com.liferay:com.liferay.configuration.admin.api" // version will be taken from BOM
+	compileInclude 'net.sargue:java-time-jsptags:1.1.4' //taglib to format Java8 java.time.LocalDateTime. (https://github.com/sargue/java-time-jsptags)
+
 	compileOnly "biz.aQute.bnd:biz.aQute.bndlib:3.5.0" 			// Required to import META Annotations for Configuration interface
 	compileOnly "javax.portlet:portlet-api:3.0.0"
 	compileOnly "javax.servlet:javax.servlet-api:3.0.1"

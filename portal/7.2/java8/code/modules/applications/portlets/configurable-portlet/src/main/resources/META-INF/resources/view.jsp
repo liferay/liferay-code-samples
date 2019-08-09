@@ -1,6 +1,7 @@
 <%@ page
 		import="com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.portlet.TaskListPortlet" %><%@ page
 		import="com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.model.PersonalTask" %>
+<%@ taglib uri="http://sargue.net/jsptags/time" prefix="javatime" %>
 <%@ include file="/init.jsp" %>
 
 <h3><liferay-ui:message key="task-list-portlet.caption"/></h3>
@@ -46,7 +47,10 @@ In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 								<use xlink:href="<%=iconsPath %>#calendar" />
 							</svg>
 						</span>
-						<c:out value="${task.dueDate}"/></p>
+						<%-- We use javatime taglib to format dueDate according to the pattern set in personalTaskDateFormat
+						     The result is set on dueDate attribute in scope -->
+						<javatime:format var="dueDate" value="${task.dueDate}" pattern="${personalTaskDateFormat}" />
+						<c:out value="${dueDate}"/></p>
 				</div>
 			</li>
 		</c:forEach>

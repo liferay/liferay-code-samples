@@ -74,6 +74,14 @@
 					</execution>
 				</executions>
 				<dependencies>
+
+					<dependency>
+						<!-- Required to import META Annotations for Configuration interface -->
+						<groupId>biz.aQute.bnd</groupId>
+						<artifactId>biz.aQute.bndlib</artifactId>
+						<version>3.5.0</version>
+					</dependency>
+
 					<!-- 
 						Add dependency on Liferay's BND plugins 
 					-->

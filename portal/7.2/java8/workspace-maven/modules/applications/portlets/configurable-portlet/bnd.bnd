@@ -1,0 +1,26 @@
+# Use the common Bnd instructions such as bundle name and version
+-include: ./common.bnd
+
+# We need to activate the generation of Metatype Service files based on @Meta annotations
+-metatype: *
+
+# We need to include the external lib for the Java 8 java-time taglib in the module
+# See https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/adding-third-party-libraries-to-a-module#embedding-libraries-in-a-module
+-includeresource:\
+ lib/java-time-jsptags-1.1.4.jar=java-time-jsptags-1.1.4.jar;lib:=true
+
+# Instruct Bnd to use portalble contracts instead of package dependencies, when possible
+-contract: JavaPortlet,JavaServlet
+
+# Add a plugin to analyze the JSPs
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+
+# Tell the JSP plugin where to find JSP files
+-jsp: *.jsp,*.jspf
+
+# Add a plugin to analyze i18n resource bundles
+-plugin.bundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+
+# Add a plugin to analyze SASS/CSS files
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *

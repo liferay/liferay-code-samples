@@ -1,27 +1,28 @@
-# Application demonstrating now to use MVC `ResourceCommand`
+# Application demonstrating now to make portlets configurable
 
 ## Overview
 
-This simple application demonstrates the use of a `ResourceCommand` to handle the delivery of Resources from a portlet.
+This simple application demonstrates how to enable some configuration that can be used to tweak how the portlet behaves.
 
 ## What it does
 
-The main `TaskListPortlet` simply shows a list of `PersonalTask`s to be done, consisting of a priority, a due date and a title for the task. The list of tasks are retrieved from a `TaskListMockService` which simply returns a hard coded list of tasks (in a real case scenario this would probably be a service that retrieves the tasks from DB).
 
-There is a `XLSTaskListMVCResourceCommand` that uses the same service to generate a xls file with the task lists and return it as a binary file. 
 
-Both the service and the `MVCResourceCommand` are registered as OSGi services and attached to the `MVCPortlet` using declarative services.
+The `PersonalTaskPortletSystemConfiguration` interface defines the attributes that can be configured. This interface is used by Liferay to create automatically the form in the Control Panel that will allow the user to configure the settings.
 
-The view layer (implemented in `view.jsp`) shows how to add a button and link to the resourceCommand invocation.
+The `TaskListConfigurationBeanDeclaration` is the component that allows the OSGi container to make available a Bean with the configured values to any component that needs to read it. 
 
-As the example uses Apache POI library (`poi-ooxml`) to generate the `.xls` file, this example also showcases how to use and include external libraries in your application.
+The main `TaskListPortlet`, reads the configuration (through a `ConfigurationProvider`) and makes the configured values available to the response, toghether with the a list of `PersonalTask`s to be done, consisting of a priority, a due date and a title for the task. 
+
+The view layer (implemented in `view.jsp`) shows the list and uses an external taglib that provides support for Java8 DateTime API to format the date according to the configured pattern. 
+
+As the example uses an external JSP taglib, it also showcases how to use and include external libraries in your application.
 
 ## Other frameworks and libraries used in this sample
 
 - `MVC Portlet` - for the portlet _(it would work the same with any other portlet framework)_
 - `OSGi Declrative Services` - to register portlet filters as OSGi components
 - `JSP` - to build the view layer
-- `Apache POI` - to generate Office and OpenDocument files (as the Spreadsheet or .xls files)
 
 ## How to build it
 
@@ -45,6 +46,6 @@ There is no configuration needed. Use the applications menu to add the sample to
 ## Related documentation
 
 - [Liferay MVC Portlet](https://portal.liferay.dev/docs/7-2/appdev/-/knowledge_base/a/liferay-mvc-portlet)
-- [Liferay MVC Portlet - Resource Commands](https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/mvc-resource-command)
+- [Configurable Applications](https://portal.liferay.dev/docs/7-2/frameworks/-/knowledge_base/f/configurable-applications)
 - [Declarative Services](https://portal.liferay.dev/docs/7-2/frameworks/-/knowledge_base/f/declarative-services)
-- <a target="_blank" href="https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/adding-third-party-libraries-to-a-module#embedding-libraries-in-a-module">Embedding Libraries In A Module</a>
+- <a target="_blank" href="https://github.com/sargue/java-time-jsptags">Sargue's Java 8 java.time JSP taglib on GitHub</a>

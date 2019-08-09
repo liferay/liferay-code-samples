@@ -13,6 +13,6 @@ import org.osgi.service.component.annotations.Component;
 public class TaskListConfigurationBeanDeclaration implements ConfigurationBeanDeclaration {
     @Override
     public Class<?> getConfigurationBeanClass() {
-        return PersonalTaskPortletConfiguration.class;
+        return PersonalTaskPortletSystemConfiguration.class;
     }
 }

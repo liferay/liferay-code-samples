@@ -1,6 +1,6 @@
 package com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.portlet;
 
-import com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.configuration.PersonalTaskPortletConfiguration;
+import com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.configuration.PersonalTaskPortletSystemConfiguration;
 import com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.service.TaskListService;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -41,12 +41,12 @@ public class TaskListPortlet extends MVCPortlet {
 	public void render(RenderRequest request, RenderResponse response) throws IOException, PortletException {
 
 		try {
-			PersonalTaskPortletConfiguration config = configurationProvider.getSystemConfiguration(PersonalTaskPortletConfiguration.class);
+			PersonalTaskPortletSystemConfiguration config = configurationProvider.getSystemConfiguration(PersonalTaskPortletSystemConfiguration.class);
 			request.setAttribute(DATE_FORMAT_PATTERN_ATTRIBUTTE, config.dateFormat());
 			LOGGER.debug("Setting " + config.dateFormat() + " as date format pattern");
 		} catch (ConfigurationException ex) {
 			LOGGER.warn("Error reading configuration for TaskListPortlet. Using default configuration. Error : " + ex.getMessage());
-			request.setAttribute(DATE_FORMAT_PATTERN_ATTRIBUTTE, PersonalTaskPortletConfiguration.DEFAULT_DATE_FORMAT);
+			request.setAttribute(DATE_FORMAT_PATTERN_ATTRIBUTTE, PersonalTaskPortletSystemConfiguration.DEFAULT_DATE_FORMAT);
 		}
 
 

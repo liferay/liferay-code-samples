@@ -20,7 +20,7 @@ import aQute.bnd.annotation.metatype.Meta;
         //Adds info to support internazionalization on the configuration UI.
         localization = "content/Language", name = "personal-task-configuration.title"
 )
-public interface PersonalTaskPortletConfiguration {
+public interface PersonalTaskPortletSystemConfiguration {
 
     public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
 

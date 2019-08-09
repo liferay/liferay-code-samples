@@ -48,7 +48,7 @@ In this case a list https://next.clayui.com/docs/css/components/list.html#1  -->
 							</svg>
 						</span>
 						<%-- We use javatime taglib to format dueDate according to the pattern set in personalTaskDateFormat
-						     The result is set on dueDate attribute in scope -->
+						     The result is set on dueDate attribute in scope --%>
 						<javatime:format var="dueDate" value="${task.dueDate}" pattern="${personalTaskDateFormat}" />
 						<c:out value="${dueDate}"/></p>
 				</div>

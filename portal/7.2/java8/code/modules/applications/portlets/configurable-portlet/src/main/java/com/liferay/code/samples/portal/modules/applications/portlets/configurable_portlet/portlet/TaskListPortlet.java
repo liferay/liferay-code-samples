@@ -16,7 +16,7 @@ import org.osgi.service.component.annotations.Reference;
 import java.io.IOException;
 
 /**
- * Simple portlet that renders a list of Personal Tasks
+ * Simple portlet that renders a list of Personal Tasks, and reads some of the configuration values
  */
 @Component(
 	immediate = true,
@@ -54,6 +54,10 @@ public class TaskListPortlet extends MVCPortlet {
 		super.render(request, response);
 	}
 
+	/**
+	 * This allows to inject the Liferay's ConfigurationProvider which will allow to access the Configs in different
+	 * scopes.
+	 */
 	@Reference
 	public void setConfigurationProvider(ConfigurationProvider configurationProvider) {
 		this.configurationProvider = configurationProvider;

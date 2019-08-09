@@ -13,6 +13,12 @@ import java.util.Collection;
 
 import static java.time.DayOfWeek.*;
 
+/**
+ * Component that represents a service to load a list of personal tasks
+ *
+ * In a real case scenario, this would probably be a service built with ServiceBuilder. For sake of simplicity,
+ * we use a Dummy service which simply returns a harcoded list of <code>PersonalTask</code>s.
+ */
 @Component(
         property = "model.class.name=com.liferay.code.samples.portal.modules.applications.portlets.resource_command.model.PersonalTask",
         service = TaskListService.class
@@ -36,7 +42,6 @@ public class TaskListMockService implements TaskListService {
                 new PersonalTask("Attend the local LSUG meet up", Priority.MEDIUM, tomorrow),
                 new PersonalTask("Improve code comments in old samples", Priority.LOW, endOfMonth)
         );
-
     }
 
 }

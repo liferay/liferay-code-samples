@@ -1,17 +1,19 @@
 package com.liferay.code.samples.portal.modules.applications.portlets.configurable_portlet.configuration;
 
 import aQute.bnd.annotation.metatype.Meta;
-import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClassDefinition;
 
-import java.time.format.DateTimeFormatter;
-
-@ExtendedObjectClassDefinition(
-        category = "dynamic-data-mapping",
-        scope = ExtendedObjectClassDefinition.Scope.GROUP
-)
-// This annotation register this interface as a configuration with a specific id.
-// With this information, Liferay will create automatically the UI by default under
-//     Control Panel > Configuration > System Settings > Third Party
+/**
+ * This interface represents the attributes of the Portlet configuration in its (default) System Scope.
+ *
+ * Each of the methods defined in the interface will be automatically converted in one configuration property.
+ *
+ * The <code>@Meta.OCD</code> annotation registers this interface as a configuration with a specific id.
+ * With this information, Liferay Portal will create automatically a UI with a form under Control Panel >
+ * Configuration > System Settings > Third Party adding a field for each of the methods annotated with
+ * <code>@Meta.AD</code>
+ *
+ * Both annotations are processed by the bndtools.
+ */
 @Meta.OCD(
         //ID must be the fully qualified class name
         id = "com.liferay.code.samples.portal.modules.applications.portlets.configuration_portlet.PersonalTaskConfiguration",

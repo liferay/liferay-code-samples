@@ -4,6 +4,7 @@
  *  - Add a Bnd plugin to analyze the JSPs
  *  - Add a Bnd plugin to analyze i18n resource bundles
  *  - Add a Bnd plugin to analyze SASS/CSS files
+ *  - Generate Metatype Service files if necessary
  */
 apply plugin: "com.liferay.plugin"				
 

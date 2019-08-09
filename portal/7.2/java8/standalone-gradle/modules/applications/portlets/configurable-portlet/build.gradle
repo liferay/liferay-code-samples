@@ -1,0 +1,76 @@
+/*
+ *  Apply Liferay Gradle plugin which will 
+ *  - Instruct Bnd to use portalble contracts instead of package dependencies, when possible
+ *  - Add a Bnd plugin to analyze the JSPs
+ *  - Add a Bnd plugin to analyze i18n resource bundles
+ *  - Add a Bnd plugin to analyze SASS/CSS files
+ */
+apply plugin: "com.liferay.plugin"				
+
+/*
+ * Spring's dependency plugin is needed to provide `dependencyManagement` functionality
+ * used to configure Liferay Portal's BOM (Biil Of Material)
+ */
+apply plugin: "io.spring.dependency-management"
+
+
+/*
+ * Configure plugins 
+ */
+buildscript {
+	dependencies {
+		classpath "com.liferay:com.liferay.gradle.plugins:3.13.156"
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
+
+	}
+
+	repositories {
+		maven {
+			url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+}
+
+/*
+ * Repositories for project dependencies
+ */
+repositories {
+	maven {
+		url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+	}
+}
+
+/* 
+ * Use the BOM provided for given Liferay Portal version
+ * This allows to automatically set proper versions for dependencies
+ */
+dependencyManagement {
+    imports {
+        mavenBom("com.liferay.portal:release.portal.bom:7.2.0")
+    }
+}
+
+/*
+ * Project dependencies
+ */
+dependencies {
+	compileOnly "biz.aQute.bnd:biz.aQute.bndlib:3.5.0" 			// Required to import META Annotations for Configuration interface
+  	compileOnly "com.liferay.portal:com.liferay.portal.kernel"	// version will be taken from BOM
+	compileOnly "com.liferay.portal:com.liferay.util.taglib" 	// version will be taken from BOM
+	// Required to create new Configuration Categories
+	compileOnly "com.liferay:com.liferay.configuration.admin.api" // version will be taken from BOM
+	// Required to allow personalization of section in which the configuration form is included within Control Panel
+	compileOnly "com.liferay:com.liferay.portal.configuration.metatype.api" // version will be taken from BOM
+	compileOnly "javax.portlet:portlet-api:3.0.0"
+	compileOnly "javax.servlet:javax.servlet-api:3.0.1"
+	compileOnly "jstl:jstl:1.2"
+	//taglib to format Java8 java.time.LocalDateTime. (https://github.com/sargue/java-time-jsptags)
+	compileInclude 'net.sargue:java-time-jsptags:1.1.4' 
+	compileOnly "org.osgi:org.osgi.service.component.annotations:1.3.0"
+}
+
+/*
+ * Set the jar name to ensure it's the same across all builds
+ */
+jar.baseName = 'com.liferay.code.samples.portal.modules.applications.portlets.configurable-portlet'

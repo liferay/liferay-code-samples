@@ -1,0 +1,22 @@
+Bundle-Name: Liferay Portal Samples :: MVC Portlet + Resource Command
+Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.resource_command.portlet
+Bundle-Version: 1.0.0
+
+Import-Package: \
+ !org.apache.poi.xssf.*,\
+ !com.github.luben.zstd.*,\
+ !com.microsoft.*,\
+ !com.sun.javadoc.*,\
+ !com.sun.tools.*,\
+ !net.sf.saxon.*,\
+ !org.apache.batik.*,\
+ !org.apache.jcp.xml.dsig.internal.dom.*,\
+ !org.bouncycastle.*,\
+ !org.brotli.dec.*,\
+ !org.etsi.uri.*,\
+ !org.openxmlformats.schemas.*,\
+ !org.tukaani.xz.*,\
+ *
+
+# Include source code in the bundle
+-sources: true

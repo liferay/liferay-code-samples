@@ -26,6 +26,7 @@
 		<module>mvc-ds-freemarker</module>
 		<module>mvc-ds-jsp</module>
     	<module>render-filter-portlet</module>
+   		<module>resource-command-portlet</module>
   </modules>
 
 </project>

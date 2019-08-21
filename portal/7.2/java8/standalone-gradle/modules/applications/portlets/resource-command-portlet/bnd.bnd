@@ -1,0 +1,12 @@
+# Use the common Bnd instructions such as bundle name and version
+-include: ./common.bnd
+
+# Because `compileInclude` is used to define the dependency to poi-ooxml.jar in `build.gradle`
+# and we are using the Liferay's plugin in gradle, we do not need to add the -includeresource
+# attribute, and the poi-ooxml.jar and any other depedencies are automatically included in the
+# resulting jar. (see Option 4 explained in https://liferay.dev/blogs/-/blogs/osgi-module-dependencies)
+# Also see https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/adding-third-party-libraries-to-a-module#embedding-libraries-in-a-module
+# to learn how external dependencies can be included in your bundle
+
+# Since we are using Liferay's plugin in Gradle, the following is automatically taken care of 
+#   - Instruct Bnd to use portalble contracts instead of package dependencies, when possible

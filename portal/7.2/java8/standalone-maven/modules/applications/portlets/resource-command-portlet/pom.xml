@@ -119,7 +119,13 @@
 					<dependency>
 						<groupId>com.liferay</groupId>
 						<artifactId>com.liferay.ant.bnd</artifactId>
-						<version>3.1.0</version>
+						<version>3.2.0</version>
+						<exclusions>
+							<exclusion>
+								<groupId>biz.aQute.bnd</groupId>
+								<artifactId>biz.aQute.bnd</artifactId>
+							</exclusion>
+						</exclusions>
 					</dependency>
 				</dependencies>
 			</plugin>

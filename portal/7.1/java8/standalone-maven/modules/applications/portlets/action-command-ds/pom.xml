@@ -5,6 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.liferay.code.samples.portal.modules.applications.portlets</groupId>
 	<artifactId>com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds</artifactId>
@@ -27,8 +28,8 @@
     </dependencyManagement>
 
 	<dependencies>
-		<!-- Liferay's portlet MVC framework -->
 		<dependency>
+			<!-- Liferay's portlet MVC framework -->
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.portal.kernel</artifactId>
 		</dependency>
@@ -57,7 +58,7 @@
 			<!-- Declarative services annotations -->
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.service.component.annotations</artifactId>
-			<version>1.4.0</version>
+			<version>1.3.0</version>
 			<scope>provided</scope> 
 		</dependency>
 	</dependencies>
@@ -86,7 +87,7 @@
 				-->
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
-				<version>3.5.0</version>
+				<version>4.2.0</version>
 				<executions>
 					<execution>
 						<goals>
@@ -101,7 +102,13 @@
 					<dependency>
 						<groupId>com.liferay</groupId>
 						<artifactId>com.liferay.ant.bnd</artifactId>
-						<version>2.0.50</version>
+						<version>3.2.0</version>
+						<exclusions>
+							<exclusion>
+								<groupId>biz.aQute.bnd</groupId>
+								<artifactId>biz.aQute.bnd</artifactId>
+							</exclusion>
+						</exclusions>
 					</dependency>
 				</dependencies>
 			</plugin>

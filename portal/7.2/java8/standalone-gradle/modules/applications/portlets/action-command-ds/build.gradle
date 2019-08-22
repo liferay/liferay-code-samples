@@ -28,7 +28,6 @@ buildscript {
 			exclude group: "biz.aQute.bnd", module: "biz.aQute.bndlib"
 		}
 		classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
-
 	}
 
 	repositories {

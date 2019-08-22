@@ -16,7 +16,14 @@ buildscript {
 	 * Plugin artifacts
 	 */
 	dependencies {
-		classpath "com.liferay:com.liferay.gradle.plugins:3.13.156"
+		classpath "biz.aQute.bnd:biz.aQute.bnd:4.2.0"
+		classpath "biz.aQute.bnd:biz.aQute.bnd.gradle:4.2.0"
+		classpath "biz.aQute.bnd:biz.aQute.bndlib:4.2.0"
+		classpath(group: "com.liferay", name: "com.liferay.gradle.plugins", version: "4.2.0") {
+			exclude group: "biz.aQute.bnd", module: "biz.aQute.bnd"
+			exclude group: "biz.aQute.bnd", module: "biz.aQute.bnd.gradle"
+			exclude group: "biz.aQute.bnd", module: "biz.aQute.bndlib"
+		}
 	}
 
 	/*

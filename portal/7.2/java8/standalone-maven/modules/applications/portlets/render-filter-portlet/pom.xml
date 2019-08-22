@@ -12,6 +12,17 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<bnd.version>4.2.0</bnd.version>
+		<compiler.plugin.version>3.1</compiler.plugin.version>
+		<java.version>1.8</java.version>
+		<jar.plugin.version>2.6</jar.plugin.version>
+		<liferay.ant.bnd.version>3.2.0</liferay.ant.bnd.version>
+		<liferay.css.builder.version>3.0.0</liferay.css.builder.version>
+		<portal.version>7.2.0</portal.version>
+		<portlet.api.version>3.0.0</portlet.api.version>
+		<service.component.annotations.version>1.3.0</service.component.annotations.version>
+		<servlet.api.version>3.0.1</servlet.api.version>
 	</properties>
 
 	<dependencyManagement>
@@ -19,7 +30,7 @@
 			<dependency>
 				<groupId>com.liferay.portal</groupId>
 				<artifactId>release.portal.bom</artifactId>
-				<version>7.2.0</version>
+				<version>${portal.version}</version>
 				<type>pom</type>
                 <scope>import</scope>
 			</dependency>
@@ -36,30 +47,24 @@
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.util.taglib</artifactId>
 		</dependency>
-		<!-- Portlet API -->
 		<dependency>
+			<!-- Portlet API -->
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
-			<version>3.0.0</version>
+			<version>${portlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<!-- Servlet 3 specification -->
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>${servlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Declarative services annotations -->
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.service.component.annotations</artifactId>
-			<version>1.3.0</version>
+			<version>${service.component.annotations.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
@@ -77,21 +82,21 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>${compiler.plugin.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 
-			<!-- 
-				Generates OSGI bundle jars by scanning the classpath,
-				module's bytecode and the meta-data provided inproject's `bnd.bnd` file 
-			-->
 			<plugin>
+				<!-- 
+					Generates OSGI bundle jars by scanning the classpath,
+					module's bytecode and the meta-data provided inproject's `bnd.bnd` file 
+				-->
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
-				<version>4.2.0</version>
+				<version>${bnd.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -100,15 +105,13 @@
 					</execution>
 				</executions>
 				<dependencies>
-					<dependency>
-						<groupId>biz.aQute.bnd</groupId>
-						<artifactId>biz.aQute.bndlib</artifactId>
-						<version>4.2.0</version>
-					</dependency>
+					<!-- 
+						Add dependency on Liferay's BND plugins 
+					-->
 					<dependency>
 						<groupId>com.liferay</groupId>
 						<artifactId>com.liferay.ant.bnd</artifactId>
-						<version>3.2.0</version>
+						<version>${liferay.ant.bnd.version}</version>
 						<exclusions>
 							<exclusion>
 								<groupId>biz.aQute.bnd</groupId>
@@ -119,13 +122,13 @@
 				</dependencies>
 			</plugin>
 
-			<!-- 
-				Build css files from sass
-			-->
 			<plugin>
+				<!-- 
+					Build css files from sass
+				-->
 				<groupId>com.liferay</groupId>
 				<artifactId>com.liferay.css.builder</artifactId>
-				<version>3.0.0</version>
+				<version>${liferay.css.builder.version}</version>
 				<executions>
 					<execution>
 						<phase>generate-resources</phase>
@@ -147,7 +150,7 @@
 				-->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
+				<version>${jar.plugin.version}</version>
 				<configuration>
 					<archive>
 						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>

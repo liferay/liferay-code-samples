@@ -45,17 +45,9 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
-
 		<!-- set the jar name to ensure it's the same accross all builds -->
 		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.render-filter-portlet</finalName>
 

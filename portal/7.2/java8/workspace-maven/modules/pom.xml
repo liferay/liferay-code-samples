@@ -30,7 +30,7 @@
 					-->
 					<groupId>com.liferay</groupId>
 					<artifactId>com.liferay.css.builder</artifactId>
-					<version>2.1.2</version>
+					<version>${liferay.css.builder.version}</version>
 					<executions>
 						<execution>
 							<id>default-build-css</id>
@@ -65,7 +65,7 @@
 				-->
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
-				<version>4.2.0</version>
+				<version>${bnd.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -80,8 +80,7 @@
 					<dependency>
 						<groupId>com.liferay</groupId>
 						<artifactId>com.liferay.ant.bnd</artifactId>
-						<!--<version>2.0.50</version> -->
-						<version>3.2.0</version>
+						<version>${liferay.ant.bnd.version}</version>
 						<exclusions>
 							<exclusion>
 								<groupId>biz.aQute.bnd</groupId>
@@ -101,7 +100,7 @@
 				-->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
+				<version>${jar.plugin.version}</version>
 				<configuration>
 					<archive>
 						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>

@@ -1,6 +1,17 @@
 buildscript {
+	ext {
+		bndVersion = '4.2.0'
+		dependencyManagementVersion = '1.0.8.RELEASE'
+		liferayGradlePluginVersion = '4.2.0'
+		liferayWorkspaceVersion = '2.1.4'
+		portalVersion = '7.1.3'
+		portletApiVersion = '3.0.0'
+		serviceComponentAnnotationsVersion = '1.3.0'
+		servletApiVersion = '3.0.1'
+	}
+        
 	dependencies {
-		classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
+		classpath "io.spring.gradle:dependency-management-plugin:${dependencyManagementVersion}"
 	}
 
 	repositories {
@@ -23,8 +34,7 @@ subprojects {
     */
     dependencyManagement {
         imports {
-            mavenBom("com.liferay.portal:release.portal.bom:7.1.3")
+            mavenBom("com.liferay.portal:release.portal.bom:${portalVersion}")
         }
     }
 }
-

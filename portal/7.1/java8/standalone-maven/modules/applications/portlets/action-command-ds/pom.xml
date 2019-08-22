@@ -5,6 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.liferay.code.samples.portal.modules.applications.portlets</groupId>
 	<artifactId>com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds</artifactId>
@@ -12,6 +13,17 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<bnd.version>4.2.0</bnd.version>
+		<compiler.plugin.version>3.1</compiler.plugin.version>
+		<java.version>1.8</java.version>
+		<jar.plugin.version>2.6</jar.plugin.version>
+		<liferay.ant.bnd.version>3.2.0</liferay.ant.bnd.version>
+		<liferay.css.builder.version>3.0.0</liferay.css.builder.version>
+		<portal.version>7.1.3</portal.version>
+		<portlet.api.version>3.0.0</portlet.api.version>
+		<service.component.annotations.version>1.3.0</service.component.annotations.version>
+		<servlet.api.version>3.0.1</servlet.api.version>
 	</properties>
 
 	<dependencyManagement>
@@ -19,7 +31,7 @@
 			<dependency>
 				<groupId>com.liferay.portal</groupId>
 				<artifactId>release.portal.bom</artifactId>
-				<version>7.1.3</version>
+				<version>${portal.version}</version>
 				<type>pom</type>
                 <scope>import</scope>
 			</dependency>
@@ -27,8 +39,8 @@
     </dependencyManagement>
 
 	<dependencies>
-		<!-- Liferay's portlet MVC framework -->
 		<dependency>
+			<!-- Liferay's portlet MVC framework -->
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.portal.kernel</artifactId>
 		</dependency>
@@ -42,14 +54,15 @@
 			<!-- Portlet API -->
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
-			<version>3.0.0</version>
+			<version>${portlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
+			<!-- Servlet API -->
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>${servlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -57,25 +70,28 @@
 			<!-- Declarative services annotations -->
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.service.component.annotations</artifactId>
-			<version>1.4.0</version>
-			<scope>provided</scope> 
+			<version>${service.component.annotations.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	
 	<build>
+
 		<!-- set the jar name to ensure it's the same accross all builds -->
 		<finalName>com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds</finalName>
 
 		<plugins>
 
-			<!-- Compile for Java 8 -->
+			<!-- 
+				Compile for Java 8
+			-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>${compiler.plugin.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 
@@ -86,7 +102,7 @@
 				-->
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
-				<version>3.5.0</version>
+				<version>${bnd.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -101,7 +117,13 @@
 					<dependency>
 						<groupId>com.liferay</groupId>
 						<artifactId>com.liferay.ant.bnd</artifactId>
-						<version>2.0.50</version>
+						<version>${liferay.ant.bnd.version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>biz.aQute.bnd</groupId>
+								<artifactId>biz.aQute.bnd</artifactId>
+							</exclusion>
+						</exclusions>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -112,7 +134,7 @@
 				-->
 				<groupId>com.liferay</groupId>
 				<artifactId>com.liferay.css.builder</artifactId>
-				<version>3.0.0</version>
+				<version>${liferay.css.builder.version}</version>
 				<executions>
 					<execution>
 						<phase>generate-resources</phase>
@@ -122,11 +144,11 @@
 					</execution>
 				</executions>
 				<configuration>
+					<!-- Where are the scss files located -->
 					<baseDir>src/main/resources/META-INF/resources</baseDir>
 				</configuration>
 			</plugin>
 
-			
 			<plugin>
 				<!-- 
 					Instruct `maven-jar-plugin` to 
@@ -135,7 +157,7 @@
 				-->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
+				<version>${jar.plugin.version}</version>
 				<configuration>
 					<archive>
 						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>

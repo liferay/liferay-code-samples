@@ -13,6 +13,16 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<bnd.version>4.2.0</bnd.version>
+		<compiler.plugin.version>3.1</compiler.plugin.version>
+		<java.version>1.8</java.version>
+		<jar.plugin.version>2.6</jar.plugin.version>
+		<liferay.ant.bnd.version>3.2.0</liferay.ant.bnd.version>
+		<liferay.css.builder.version>3.0.0</liferay.css.builder.version>
+		<portal.version>7.2.0</portal.version>
+		<portlet.api.version>3.0.0</portlet.api.version>
+		<service.component.annotations.version>1.3.0</service.component.annotations.version>
 	</properties>
 
 	<dependencyManagement>
@@ -20,7 +30,7 @@
 			<dependency>
 				<groupId>com.liferay.portal</groupId>
 				<artifactId>release.portal.bom</artifactId>
-				<version>7.2.0</version>
+				<version>${portal.version}</version>
 				<type>pom</type>
                 <scope>import</scope>
 			</dependency>
@@ -32,7 +42,7 @@
 			<!-- Portlet API -->
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
-			<version>3.0.0</version>
+			<version>${portlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -46,7 +56,7 @@
 			<!-- Declarative services annotations -->
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.service.component.annotations</artifactId>
-			<version>1.4.0</version>
+			<version>${service.component.annotations.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
@@ -61,10 +71,10 @@
 				-->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>${compiler.plugin.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -74,7 +84,7 @@
 				-->
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
-				<version>3.5.0</version>
+				<version>${bnd.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -89,7 +99,13 @@
 					<dependency>
 						<groupId>com.liferay</groupId>
 						<artifactId>com.liferay.ant.bnd</artifactId>
-						<version>2.0.50</version>
+						<version>${liferay.ant.bnd.version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>biz.aQute.bnd</groupId>
+								<artifactId>biz.aQute.bnd</artifactId>
+							</exclusion>
+						</exclusions>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -102,7 +118,7 @@
 				-->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
+				<version>${jar.plugin.version}</version>
 				<configuration>
 					<archive>
 						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
@@ -118,7 +134,7 @@
 				-->
 				<groupId>com.liferay</groupId>
 				<artifactId>com.liferay.css.builder</artifactId>
-				<version>2.1.2</version>
+				<version>${liferay.css.builder.version}</version>
 				<executions>
 					<execution>
 						<id>default-build-css</id>

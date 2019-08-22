@@ -11,14 +11,14 @@
 	<artifactId>com.liferay.code.samples.portal.modules.applications.portlets.action-command-ds</artifactId>
 	<version>1.0.0</version>
 
-	<name> Portlet :: MVC + ActionCommand + DS + JSP </name>
-
 	<parent>
 		<groupId>workspace.maven</groupId>
 		<artifactId>modules.applications.portlets</artifactId>
 		<version>1.0.0</version>
 		<relativePath>../pom.xml</relativePath>
- 	</parent>
+	</parent>
+	
+	<name> Portlet :: MVC + ActionCommand + DS + JSP </name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

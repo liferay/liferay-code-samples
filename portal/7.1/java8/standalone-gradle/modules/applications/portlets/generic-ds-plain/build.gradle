@@ -11,12 +11,25 @@ apply plugin: "com.liferay.plugin"
  * Configure plugins 
  */
 buildscript {
+	ext {
+		bndVersion = '4.2.0'
+		liferayGradlePluginVersion = '4.2.0'
+		portletApiVersion = '3.0.0'
+		serviceComponentAnnotationsVersion = '1.3.0'
+	}
 
 	/*
 	 * Plugin artifacts
 	 */
 	dependencies {
-		classpath "com.liferay:com.liferay.gradle.plugins:3.13.156"
+		classpath "biz.aQute.bnd:biz.aQute.bnd:${bndVersion}"
+		classpath "biz.aQute.bnd:biz.aQute.bnd.gradle:${bndVersion}"
+		classpath "biz.aQute.bnd:biz.aQute.bndlib:${bndVersion}"
+		classpath(group: "com.liferay", name: "com.liferay.gradle.plugins", version: "${liferayGradlePluginVersion}") {
+			exclude group: "biz.aQute.bnd", module: "biz.aQute.bnd"
+			exclude group: "biz.aQute.bnd", module: "biz.aQute.bnd.gradle"
+			exclude group: "biz.aQute.bnd", module: "biz.aQute.bndlib"
+		}
 	}
 
 	/*
@@ -42,8 +55,8 @@ repositories {
  * Project depenedencies
  */
 dependencies {
-	compileOnly "javax.portlet:portlet-api:3.0.0"
-	compileOnly "org.osgi:org.osgi.service.component.annotations:1.3.0"
+	compileOnly "javax.portlet:portlet-api:${portletApiVersion}"
+	compileOnly "org.osgi:org.osgi.service.component.annotations:${serviceComponentAnnotationsVersion}"
 }
 
 /*

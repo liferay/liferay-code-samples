@@ -4,10 +4,9 @@
 dependencies {
 	compileOnly "com.liferay.portal:com.liferay.portal.kernel"	// version will be taken from BOM
 	compileOnly "com.liferay.portal:com.liferay.util.taglib" 	// version will be taken from BOM
-	compileOnly "javax.portlet:portlet-api:3.0.0"
-	compileOnly "javax.servlet:javax.servlet-api:3.0.1"
-	compileOnly "jstl:jstl:1.2"
-	compileOnly "org.osgi:org.osgi.service.component.annotations:1.3.0"
+	compileOnly "javax.portlet:portlet-api:${portletApiVersion}"
+	compileOnly "javax.servlet:javax.servlet-api:${servletApiVersion}"
+	compileOnly "org.osgi:org.osgi.service.component.annotations:${serviceComponentAnnotationsVersion}"
 
 	// Include the apache-poi-ooxml dependency in the resulting artifact.
 	// With compileInclude, Liferay's gradle plugin will take care of embeding all the

@@ -1,0 +1,15 @@
+/*
+ * Project depenedencies
+ */
+dependencies {
+	compileOnly "com.liferay.portal:com.liferay.portal.kernel"		// version will be taken from BOM
+	compileOnly "com.liferay.portal:com.liferay.util.bridges"		// version will be taken from BOM
+	compileOnly "com.liferay.portal:com.liferay.util.taglib"		// version will be taken from BOM
+	compileOnly "javax.portlet:portlet-api:${portletApiVersion}"
+	compileOnly "org.osgi:org.osgi.service.component.annotations:${serviceComponentAnnotationsVersion}"
+}
+
+/*
+ * Set the jar name to ensure it's the same accross all builds
+ */
+jar.baseName = 'com.liferay.code.samples.portal.modules.applications.portlets.mvc-ds-freemarker'

@@ -11,3 +11,7 @@
 
 # Add a plugin to analyze i18n resource bundles
 -plugin.bundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+
+# Add a plugin to analyze SASS/CSS files
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *

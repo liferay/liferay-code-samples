@@ -3,6 +3,6 @@
 
 # Since we are using Liferay's plugin in Gradle, the following is automatically taken care of 
 #   - Instruct Bnd to use portalble contracts instead of package dependencies, when possible
-
-# Include source code in the bundle
--sources: true
+#   - Add a plugin to analyze the JSPs
+#   - Add a plugin to analyze i18n resource bundles
+#   - Add a plugin to analyze SASS/CSS files

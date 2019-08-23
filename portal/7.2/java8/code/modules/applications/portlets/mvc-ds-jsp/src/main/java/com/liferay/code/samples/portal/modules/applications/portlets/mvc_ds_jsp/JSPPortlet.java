@@ -28,15 +28,15 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	immediate = true,
 	property = {
-		"com.liferay.portlet.css-class-wrapper=portlet-jsp",
-		"com.liferay.portlet.display-category=category.sample",
-		"com.liferay.portlet.header-portlet-css=/css/main.css",
-		"com.liferay.portlet.instanceable=true",
-		"javax.portlet.name=" + JSPPortlet.NAME,
-		"javax.portlet.init-param.template-path=/",
-		"javax.portlet.init-param.view-template=/view.jsp",
-		"javax.portlet.resource-bundle=content.Language",
-		"javax.portlet.security-role-ref=power-user,user"
+		"com.liferay.portlet.css-class-wrapper=portlet-jsp",				// CSS class to be added to the portlet's HTML element
+		"com.liferay.portlet.display-category=category.sample",				// category to which this portlet will be added in applications menu
+		"com.liferay.portlet.header-portlet-css=/css/main.css",				// portlet specific CSS
+		"com.liferay.portlet.instanceable=true",							// can more that one istance be added to a page 
+		"javax.portlet.name=" + JSPPortlet.NAME,							// portlet's name
+		"javax.portlet.init-param.template-path=/",							// relative path to all display templates
+		"javax.portlet.init-param.view-template=/view.jsp",					// the path to default view JSP page
+		"javax.portlet.resource-bundle=content.Language",					// the resource bundle file for I18N
+		"javax.portlet.security-role-ref=power-user,user"					// references to security roles 
 	},
 	service = Portlet.class
 )

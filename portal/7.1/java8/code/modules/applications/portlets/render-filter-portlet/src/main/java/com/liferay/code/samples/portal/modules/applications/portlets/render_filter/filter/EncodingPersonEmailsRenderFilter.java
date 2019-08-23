@@ -33,13 +33,12 @@ import java.util.stream.Collectors;
 @Component(
         immediate = true,
         property = {
-                "javax.portlet.name=" + MembersListPortlet.MEMBERSLIST_PORTLET_NAME,
-                "service.ranking:Integer=1"
+                "javax.portlet.name=" + MembersListPortlet.MEMBERSLIST_PORTLET_NAME, //Links Filter to  portlet by name
+                "service.ranking:Integer=1"  //Specifies filter order in FilterChain. Highest number means higher preference
         },
         service = PortletFilter.class
 )
 public class EncodingPersonEmailsRenderFilter implements RenderFilter {
-
 
     /**
      * Implementation of filter method. This is where the filter can intercept the Request or adapt data both in the
@@ -80,7 +79,7 @@ public class EncodingPersonEmailsRenderFilter implements RenderFilter {
      */
     private Person ofuscatePersonEmail(Person person) {
         return new Person(person.getName(),
-                person.getEmail().replaceFirst("(.+)(...)@(...)(.*)", "$1...@...$4"));
+                          person.getEmail().replaceFirst("(.+)(...)@(...)(.*)", "$1...@...$4"));
 
     }
 

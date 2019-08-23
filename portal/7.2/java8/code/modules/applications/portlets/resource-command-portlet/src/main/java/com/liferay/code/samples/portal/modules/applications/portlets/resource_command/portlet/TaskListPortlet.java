@@ -2,12 +2,13 @@ package com.liferay.code.samples.portal.modules.applications.portlets.resource_c
 
 import com.liferay.code.samples.portal.modules.applications.portlets.resource_command.service.TaskListService;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
-
-import javax.portlet.*;
-
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
+import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 import java.io.IOException;
 
 /**

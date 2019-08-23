@@ -83,10 +83,18 @@ public class EncodingPersonEmailsRenderFilter implements RenderFilter {
 
     }
 
+    /**
+     * Method executed when the filter is instantiated and added to the Filter chain. The FilterConfig contain any init
+     * param or initial configuration for the filter
+     */
     @Override
     public void init(FilterConfig filterConfig) throws PortletException {
     }
 
+    /**
+     * Method invoked before the destruction of the filter and its removal from the FilterChain. Usually this method
+     * includes any clean-up code required by the filter.
+     */
     @Override
     public void destroy() {
     }

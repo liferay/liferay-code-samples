@@ -26,7 +26,7 @@ This sample can be deployed by coping the resulting module `jar` file found
 - For `Gradle` builds in `path/to/sample/build/libs` folder
 - For `Maven` builds in `path/to/sample/target` folder
 
-to Liferay Portal's `deploy` folder. 
+to Liferay Portal's `deploy` folder.
 
 **This module requires Liferay's bridge to `FreeMarker` to be installed in order to be properly resolved. The bridge is
 not installed by default in Liferay Portal 7.1.3 GA4. If you deploy this example make sure to also deploy the [com.liferay.util.bridges-5.0.1.jar](https://repository.liferay.com/nexus/content/groups/public/com/liferay/portal/com.liferay.util.bridges/5.0.1/)**
@@ -41,4 +41,5 @@ There is no configuration needed. Use the applications menu to add the sample to
 
 - [FreeMarker documentation](https://freemarker.apache.org/docs/index.html)
 - [FreeMarker Portlet Template](https://portal.liferay.dev/docs/7-1/reference/-/knowledge_base/r/freemarker-portlet-template)
+- [FreeMarker Taglib Macros](https://portal.liferay.dev/docs/7-1/reference/-/knowledge_base/r/freemarker-taglib-macros)
 - [Liferay MVC Portlet](https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/liferay-mvc-portlet)

@@ -8,7 +8,7 @@
 # Also see https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/adding-third-party-libraries-to-a-module#embedding-libraries-in-a-module
 # to learn how external dependencies can be included in your bundle
 
-# Since we are using Liferay's plugin in Gradle, the following is automatically taken care of
+# Since we are using Liferay's gradle workspace, the following is automatically taken care of 
 #   - Instruct Bnd to use portalble contracts instead of package dependencies, when possible
 #   - Add a plugin to analyze the JSPs
 #   - Add a plugin to analyze i18n resource bundles

@@ -40,5 +40,6 @@ There is no configuration needed. Use the applications menu to add the sample to
 ## Related documentation
 
 - [FreeMarker documentation](https://freemarker.apache.org/docs/index.html)
-- [FreeMarker Portlet Template](https://portal.liferay.dev/docs/7-1/reference/-/knowledge_base/r/freemarker-portlet-template)
-- [Liferay MVC Portlet](https://portal.liferay.dev/docs/7-1/tutorials/-/knowledge_base/t/liferay-mvc-portlet)
+- [FreeMarker Portlet Template](https://portal.liferay.dev/docs/7-2/reference/-/knowledge_base/r/freemarker-portlet-template)
+- [FreeMarker Taglib Macros](https://portal.liferay.dev/docs/7-2/reference/-/knowledge_base/r/freemarker-taglib-macros)
+- [Liferay MVC Portlet](https://portal.liferay.dev/docs/7-2/appdev/-/knowledge_base/a/liferay-mvc-portlet)

@@ -28,9 +28,9 @@ import java.util.List;
 )
 public class MembersListPortlet extends MVCPortlet {
 
-    public static final String MEMBERSLIST_PORTLET_NAME = "member_list_portlet";
-    public static final String MEMBERLIST_ATTRIBUTE 	= "memberlist";
-    public static final String LOAD_USERS_ACTION 		= "loadUsers";
+	public static final String MEMBERSLIST_PORTLET_NAME 	= "member_list_portlet";
+	public static final String MEMBERLIST_ATTRIBUTE 		= "memberlist";
+	public static final String LOAD_USERS_ACTION 			= "loadUsers";
 
 	/**
 	 * Method that simulates the loading of a list of users and puts it as an attribute of the ActionRequest so that

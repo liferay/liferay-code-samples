@@ -1,4 +1,4 @@
-Bundle-Name: Liferay Portal Samples :: MVC Portlet + Resource Command 
+Bundle-Name: Liferay Portal Samples :: MVC Portlet + Resource Command
 Bundle-SymbolicName: com.liferay.code.samples.portal.modules.applications.portlets.resource_command
 Bundle-Version: 1.0.0
 

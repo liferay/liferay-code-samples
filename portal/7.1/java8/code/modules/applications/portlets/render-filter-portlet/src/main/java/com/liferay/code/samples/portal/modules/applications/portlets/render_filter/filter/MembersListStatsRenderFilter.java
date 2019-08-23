@@ -65,7 +65,7 @@ public class MembersListStatsRenderFilter implements RenderFilter {
     @Override
     public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain) throws IOException, PortletException {
 
-        //Before invoking the portlet,
+        //Before invoking the portlet
         long startTime = System.nanoTime();
 
         // Invoke the rest of the filters in the chain
@@ -95,8 +95,8 @@ public class MembersListStatsRenderFilter implements RenderFilter {
      */
     @Override
     public void init(FilterConfig filterConfig) throws PortletException {
-    }
 
+    }
 
     /**
      * Method invoked before the destruction of the filter and its removal from the FilterChain. Usually this method

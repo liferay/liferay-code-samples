@@ -3,7 +3,9 @@ package com.liferay.code.samples.portal.modules.applications.portlets.render_fil
 import com.liferay.code.samples.portal.modules.applications.portlets.render_filter.model.Person;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
-import javax.portlet.*;
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
+import javax.portlet.Portlet;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -54,6 +56,5 @@ public class MembersListPortlet extends MVCPortlet {
 				new Person("Ericka Merav", "Ericka.Merav@example.dev"),
 				new Person("Kennet Brandr", "Kennet.Brandr@example.com"));
 	}
-
 
 }

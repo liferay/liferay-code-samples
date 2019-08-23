@@ -7,7 +7,7 @@ displayFiles:
   - name: Portlet
     highlighting: java 
     path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/action_command_ds/portlet/ActionCommandPortlet.java
-  - name: Greet command 
+  - name: Greet command
     highlighting: java 
     path: src/main/java/com/liferay/code/samples/portal/modules/applications/portlets/action_command_ds/command/GreetCommand.java
   - name: Forget command

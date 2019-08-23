@@ -1,10 +1,6 @@
 # Use the common Bnd instructions such as bundle name and version
 -include: ./common.bnd
 
-#-includeresource:\
-#	@com.liferay.util.bridges-2.0.0.jar!/com/liferay/util/bridges/freemarker/FreeMarkerPortlet.class,\
-#	@com.liferay.util.taglib-2.0.0.jar!/META-INF/*.tld
-    
 # Since we are using Liferay's plugin in Gradle, the following is automatically taken care of 
 #   - Instruct Bnd to use portalble contracts instead of package dependencies, when possible
 #   - Add a plugin to analyze the JSPs
